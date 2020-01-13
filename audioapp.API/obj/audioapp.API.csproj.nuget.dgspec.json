@@ -1,24 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\nazar\\Desktop\\audioapp\\audioapp.API\\audioapp.API.csproj": {}
+    "c:\\Users\\nazar\\Desktop\\audioapp\\audioapp.API\\audioapp.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\nazar\\Desktop\\audioapp\\audioapp.API\\audioapp.API.csproj": {
+    "c:\\Users\\nazar\\Desktop\\audioapp\\audioapp.API\\audioapp.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nazar\\Desktop\\audioapp\\audioapp.API\\audioapp.API.csproj",
+        "projectUniqueName": "c:\\Users\\nazar\\Desktop\\audioapp\\audioapp.API\\audioapp.API.csproj",
         "projectName": "audioapp.API",
-        "projectPath": "C:\\Users\\nazar\\Desktop\\audioapp\\audioapp.API\\audioapp.API.csproj",
+        "projectPath": "c:\\Users\\nazar\\Desktop\\audioapp\\audioapp.API\\audioapp.API.csproj",
         "packagesPath": "C:\\Users\\nazar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nazar\\Desktop\\audioapp\\audioapp.API\\obj\\",
+        "outputPath": "c:\\Users\\nazar\\Desktop\\audioapp\\audioapp.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
           "C:\\Users\\nazar\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.0"
@@ -41,6 +43,10 @@
       "frameworks": {
         "netcoreapp3.0": {
           "dependencies": {
+            "CloudinaryDotNet": {
+              "target": "Package",
+              "version": "[1.9.1, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[3.0.0, )"
@@ -64,6 +70,16 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.0.1, 3.0.1]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[3.0.1, 3.0.1]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -72,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
