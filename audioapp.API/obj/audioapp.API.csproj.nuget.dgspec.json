@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\nazar\\Desktop\\audioapp\\audioapp.API\\audioapp.API.csproj": {}
+    "C:\\Users\\nazar\\Desktop\\audioapp\\audioapp.API\\audioapp.API.csproj": {}
   },
   "projects": {
-    "c:\\Users\\nazar\\Desktop\\audioapp\\audioapp.API\\audioapp.API.csproj": {
+    "C:\\Users\\nazar\\Desktop\\audioapp\\audioapp.API\\audioapp.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\nazar\\Desktop\\audioapp\\audioapp.API\\audioapp.API.csproj",
+        "projectUniqueName": "C:\\Users\\nazar\\Desktop\\audioapp\\audioapp.API\\audioapp.API.csproj",
         "projectName": "audioapp.API",
-        "projectPath": "c:\\Users\\nazar\\Desktop\\audioapp\\audioapp.API\\audioapp.API.csproj",
+        "projectPath": "C:\\Users\\nazar\\Desktop\\audioapp\\audioapp.API\\audioapp.API.csproj",
         "packagesPath": "C:\\Users\\nazar\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\nazar\\Desktop\\audioapp\\audioapp.API\\obj\\",
+        "outputPath": "C:\\Users\\nazar\\Desktop\\audioapp\\audioapp.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -43,6 +43,10 @@
       "frameworks": {
         "netcoreapp3.0": {
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
             "CloudinaryDotNet": {
               "target": "Package",
               "version": "[1.9.1, )"
