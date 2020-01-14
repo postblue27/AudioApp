@@ -1,8 +1,10 @@
 using audioapp.API.Data;
+using audioapp.API.Dtos;
 using audioapp.API.Helpers;
 using audioapp.API.Models;
 using AutoMapper;
 using CloudinaryDotNet;
+using CloudinaryDotNet.Actions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
@@ -37,11 +39,44 @@ namespace audioapp.API.Controllers
 
             _cloudinary = new Cloudinary(acc);
         }
-    [HttpGet]
-    public async Task<IActionResult> GetAudio()
-    {
-        var tracks = await _context.Tracks.ToListAsync();
-        return Ok(tracks);
+
+        [HttpPost]
+        public async Task<IActionResult> AddTrack(TrackForCreationDto trackForCreationDto)
+        {
+            var file = trackForCreationDto.File;
+
+            var uploadResult = new VideoUploadResult();
+
+            if(file.Length > 0)
+            {
+                using(var stream = file.OpenReadStream())
+                {
+                    var uploadParams = new VideoUploadParams()
+                    {
+                        File = new FileDescription(file.Name, stream)
+                    };
+
+                    uploadResult = _cloudinary.Upload(uploadParams);
+                }
+            }
+
+            trackForCreationDto.Url = uploadResult.Uri.ToString();
+            trackForCreationDto.PublicId = uploadResult.PublicId;
+
+            var track = _mapper.Map<Track>(trackForCreationDto);
+
+            _context.Tracks.Add(track);
+
+            _context.SaveChanges();
+
+            return Ok();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAudio()
+        {
+            var tracks = await _context.Tracks.ToListAsync();
+            return Ok(tracks);
+        }
     }
-}
 }
