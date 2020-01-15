@@ -2,7 +2,7 @@
 
 namespace audioapp.API.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -14,7 +14,8 @@ namespace audioapp.API.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     TrackName = table.Column<string>(nullable: true),
                     PerformerName = table.Column<string>(nullable: true),
-                    Path = table.Column<string>(nullable: true)
+                    Url = table.Column<string>(nullable: true),
+                    PublicId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

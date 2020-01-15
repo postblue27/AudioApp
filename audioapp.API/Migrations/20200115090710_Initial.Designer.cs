@@ -8,8 +8,8 @@ using audioapp.API.Data;
 namespace audioapp.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200109032324_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20200115090710_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,13 +23,16 @@ namespace audioapp.API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Path")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("PerformerName")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("PublicId")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("TrackName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Url")
                         .HasColumnType("TEXT");
 
                     b.HasKey("TrackId");

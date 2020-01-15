@@ -23,10 +23,12 @@ namespace audioapp.API.Controllers
         private readonly IMapper _mapper;
         private readonly IOptions<CloudinarySettings> _cloudinaryConfig;
         private Cloudinary _cloudinary;
+        private readonly IAudioRepository _repo;
 
-        public AudioController(DataContext conetxt, IMapper mapper,
+        public AudioController(DataContext conetxt, IAudioRepository repo, IMapper mapper,
         IOptions<CloudinarySettings> cloudinaryConfig)
         {
+            _repo = repo;
             _cloudinaryConfig = cloudinaryConfig;
             _mapper = mapper;
             _context = conetxt;
@@ -40,16 +42,26 @@ namespace audioapp.API.Controllers
             _cloudinary = new Cloudinary(acc);
         }
 
+        [HttpGet("{id}", Name = "GetTrack")]
+        public async Task<IActionResult> GetTrack(int id)
+        {
+            var trackFromRepo = await _repo.GetTrack(id);
+
+            var track = _mapper.Map<TrackForReturnDto>(trackFromRepo);
+
+            return Ok(track);
+        }
+
         [HttpPost]
-        public async Task<IActionResult> AddTrack(TrackForCreationDto trackForCreationDto)
+        public IActionResult AddTrack([FromForm]TrackForCreationDto trackForCreationDto)
         {
             var file = trackForCreationDto.File;
 
             var uploadResult = new VideoUploadResult();
 
-            if(file.Length > 0)
+            if (file.Length > 0)
             {
-                using(var stream = file.OpenReadStream())
+                using (var stream = file.OpenReadStream())
                 {
                     var uploadParams = new VideoUploadParams()
                     {
@@ -67,9 +79,12 @@ namespace audioapp.API.Controllers
 
             _context.Tracks.Add(track);
 
-            _context.SaveChanges();
+            var trackForReturn = _mapper.Map<TrackForReturnDto>(track);
 
-            return Ok();
+            _context.SaveChanges();
+            return CreatedAtRoute("GetTrack", new {id = track.TrackId}, trackForReturn);
+
+            return BadRequest("ff");
         }
 
         [HttpGet]
