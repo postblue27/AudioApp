@@ -7,5 +7,6 @@ namespace audioapp.API.Data
     {
         Task<User> Register(User user, string password);
         Task<bool> UserExists(string username);
+        Task<User> Login(string username, string password);
     }
 }

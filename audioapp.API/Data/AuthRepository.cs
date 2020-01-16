@@ -46,5 +46,33 @@ namespace audioapp.API.Data
 
             return false;
         }
+
+        public async Task<User> Login(string username, string password)
+        {
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.UserName == username);
+
+            if(user == null)
+                return null;
+
+            if(!VerifyPasswordHash(password, user.PasswordHash, user.PasswordSalt))
+                return null;
+
+            return user;
+        }
+
+        public bool VerifyPasswordHash(string password, byte[] PasswordHash, byte[] PasswordSalt)
+        {
+            using(var hmac = new System.Security.Cryptography.HMACSHA512(PasswordSalt))
+            {
+                var computedHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+                for(int i = 0; i < computedHash.Length; i++)
+                {
+                    if(computedHash[i] != PasswordHash[i])
+                        return false;
+                }
+
+                return true;
+            }
+        }
     }
 }
