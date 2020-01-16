@@ -34,6 +34,7 @@ namespace audioapp.API
             services.AddCors();
             services.AddAutoMapper(typeof(AudioRepository).Assembly);
             services.AddScoped<IAudioRepository, AudioRepository>();
+            services.AddScoped<IAuthRepository, AuthRepository>();
             services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
         }
 
