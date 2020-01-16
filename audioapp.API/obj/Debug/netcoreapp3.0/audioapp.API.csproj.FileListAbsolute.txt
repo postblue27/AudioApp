@@ -45,3 +45,10 @@ C:\Users\nazar\Desktop\audioapp\audioapp.API\bin\Debug\netcoreapp3.0\AutoMapper.
 C:\Users\nazar\Desktop\audioapp\audioapp.API\bin\Debug\netcoreapp3.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\nazar\Desktop\audioapp\audioapp.API\bin\Debug\netcoreapp3.0\CloudinaryDotNet.dll
 C:\Users\nazar\Desktop\audioapp\audioapp.API\bin\Debug\netcoreapp3.0\Newtonsoft.Json.dll
+C:\Users\nazar\Desktop\audioapp\audioapp.API\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\nazar\Desktop\audioapp\audioapp.API\bin\Debug\netcoreapp3.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\nazar\Desktop\audioapp\audioapp.API\bin\Debug\netcoreapp3.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\nazar\Desktop\audioapp\audioapp.API\bin\Debug\netcoreapp3.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\nazar\Desktop\audioapp\audioapp.API\bin\Debug\netcoreapp3.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\nazar\Desktop\audioapp\audioapp.API\bin\Debug\netcoreapp3.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\nazar\Desktop\audioapp\audioapp.API\bin\Debug\netcoreapp3.0\System.IdentityModel.Tokens.Jwt.dll

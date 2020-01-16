@@ -5,6 +5,7 @@ using audioapp.API.Models;
 using AutoMapper;
 using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
@@ -41,7 +42,7 @@ namespace audioapp.API.Controllers
 
             _cloudinary = new Cloudinary(acc);
         }
-
+        [Authorize]
         [HttpGet("{id}", Name = "GetTrack")]
         public async Task<IActionResult> GetTrack(int id)
         {
@@ -51,7 +52,7 @@ namespace audioapp.API.Controllers
 
             return Ok(track);
         }
-
+        [Authorize]
         [HttpPost]
         public IActionResult AddTrack([FromForm]TrackForCreationDto trackForCreationDto)
         {
