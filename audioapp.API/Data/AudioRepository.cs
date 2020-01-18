@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using audioapp.API.Models;
 using Microsoft.EntityFrameworkCore;
@@ -17,6 +18,13 @@ namespace audioapp.API.Data
             var track = await _context.Tracks.FirstOrDefaultAsync(t => t.TrackId == id);
 
             return track;
+        }
+
+        public async Task<List<Track>> GetTracks()
+        {
+            var tracksList = await _context.Tracks.ToListAsync();
+
+            return tracksList;
         }
     }
 }

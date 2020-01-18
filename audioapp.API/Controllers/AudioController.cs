@@ -52,6 +52,14 @@ namespace audioapp.API.Controllers
 
             return Ok(track);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> GetTracks()
+        {
+            var tracks = await _repo.GetTracks();
+
+            return Ok(tracks);
+        }
         [Authorize]
         [HttpPost]
         public IActionResult AddTrack([FromForm]TrackForCreationDto trackForCreationDto)
@@ -86,13 +94,6 @@ namespace audioapp.API.Controllers
             return CreatedAtRoute("GetTrack", new {id = track.TrackId}, trackForReturn);
 
             return BadRequest("ff");
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> GetAudio()
-        {
-            var tracks = await _context.Tracks.ToListAsync();
-            return Ok(tracks);
         }
     }
 }

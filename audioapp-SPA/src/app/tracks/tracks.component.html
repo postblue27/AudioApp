@@ -1,0 +1,7 @@
+<div *ngFor="let track of tracks"> 
+  <div class='tr' id={{track.publicId}}>
+    <span>{{track.performerName}} - </span>
+    <span>{{track.trackName}}</span>
+    <audio controls src={{track.url}}></audio>
+  </div>
+</div>
