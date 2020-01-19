@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input, SimpleChanges } from '@angular/core';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -13,6 +13,5 @@ export class BottomPlayerComponent implements OnInit {
 
   ngOnInit() {
   }
-
 
 }

@@ -12,6 +12,6 @@ export class AppComponent {
 
   passActiveTrackSrc(src: string) {
     this.activeTrackSrc = src;
-    console.log("passed to appComponent");
+    //console.log("passed to appComponent");
   }
 }

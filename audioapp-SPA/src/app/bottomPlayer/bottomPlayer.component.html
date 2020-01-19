@@ -1,4 +1,5 @@
 <div class="bottomPlayer">dd
   <fa-icon [icon]="faCoffee"></fa-icon>
-  <audio controls id="player_a" src={{activeTrackSrcFromApp}}></audio>
+  <audio controls oncanplaythrough="document.getElementById('player_a').play()" 
+    id="player_a" src={{activeTrackSrcFromApp}}></audio>
 </div>
