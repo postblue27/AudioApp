@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class HomeComponent implements OnInit {
   registerMode = false;
   tracks: any;
-  @Output() activeTrackSrc = new EventEmitter();
+  @Output() activeTrack = new EventEmitter();
 
   constructor(private http: HttpClient) { }
 
@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit {
     this.registerMode = registerMode;
   }
 
-  passActiveTrackSrc(src: string) {
-    this.activeTrackSrc.emit(src);
+  passActiveTrackSrc(track: any) {
+    this.activeTrack.emit(track);
   }
 }

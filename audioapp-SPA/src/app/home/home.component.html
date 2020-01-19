@@ -20,7 +20,7 @@
 
 <div class="text-center mt-5">
   <div class="mt-1" *ngFor="let track of tracks"> 
-    <div class="btn btn-success" (click)="passActiveTrackSrc(track.url)" id={{track.publicId}}>
+    <div class="btn btn-success" (click)="passActiveTrackSrc(track)" id={{track.publicId}}>
       <span>{{track.performerName}} - {{track.trackName}}({{track.publicId}})</span>
     </div>
   </div>

@@ -1,5 +1,13 @@
-<div class="bottomPlayer">dd
-  <fa-icon [icon]="faCoffee"></fa-icon>
-  <audio controls oncanplaythrough="document.getElementById('player_a').play()" 
-    id="player_a" src={{activeTrackSrcFromApp}}></audio>
+<div class="bottomPlayer">
+  <!--<audio controls id="player_a" loop autoplay></audio>-->
+
+  <div>
+    <span id="performerNameSpan" class="text-light">...</span>
+    <span class="text-light"> - </span>
+    <span id="trackNameSpan" class="text-light">...</span>
+  </div>
+  <div id="playPauseDiv"> 
+    <span id="playIcon"><fa-icon [icon]="faPlay" style="color: rgb(208, 211, 212);"></fa-icon></span>
+    <span id="pauseIcon"><fa-icon [icon]="faPause" style="color: rgb(208, 211, 212);"></fa-icon></span>
+  </div>
 </div>
