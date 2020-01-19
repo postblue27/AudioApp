@@ -1,5 +1,4 @@
 
 <app-nav></app-nav>
-<app-home></app-home>
-<!--<app-tracks></app-tracks>-->
-<app-bottomPlayer></app-bottomPlayer>
+<app-home (activeTrackSrc)="passActiveTrackSrc($event)"></app-home>
+<app-bottomPlayer [activeTrackSrcFromApp]="activeTrackSrc"></app-bottomPlayer>

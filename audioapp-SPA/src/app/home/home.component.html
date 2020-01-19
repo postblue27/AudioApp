@@ -11,8 +11,18 @@
   <div *ngIf="registerMode" class="container">
     <div class="row justify-content-center">
       <div class="col-4">
-        <app-register></app-register>
+        <app-register [tracksFromHome]="tracks" (cancelRegister)="cancelRegisterMode($event)"></app-register>
       </div>
     </div>
+  </div>
+ 
+</div>
+
+
+<div *ngFor="let track of tracks"> 
+  <div class='tr' (click)="passActiveTrackSrc(track.url)" id={{track.publicId}}>
+    <span>{{track.performerName}} - </span>
+    <span>{{track.trackName}}</span>
+    <audio controls src={{track.url}}></audio>
   </div>
 </div>

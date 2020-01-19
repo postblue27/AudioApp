@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -8,9 +8,11 @@ import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 })
 export class BottomPlayerComponent implements OnInit {
   faCoffee = faCoffee;
+  @Input() activeTrackSrcFromApp: string;
   constructor() { }
 
   ngOnInit() {
   }
+
 
 }

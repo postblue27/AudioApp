@@ -5,7 +5,6 @@ import {HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { FormsModule } from '@angular/forms';
-import { TracksComponent } from './tracks/tracks.component';
 import { BottomPlayerComponent } from './bottomPlayer/bottomPlayer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AuthService } from './_services/auth.service';
@@ -16,7 +15,6 @@ import { RegisterComponent } from './register/register.component';
    declarations: [
       AppComponent,
       NavComponent,
-      TracksComponent,
       BottomPlayerComponent,
       HomeComponent,
       RegisterComponent

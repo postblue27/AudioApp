@@ -8,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'audioapp-SPA';
+  activeTrackSrc: string;
+
+  passActiveTrackSrc(src: string) {
+    this.activeTrackSrc = src;
+    console.log("passed to appComponent");
+  }
 }
