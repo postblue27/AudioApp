@@ -9,13 +9,17 @@ import { TracksComponent } from './tracks/tracks.component';
 import { BottomPlayerComponent } from './bottomPlayer/bottomPlayer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AuthService } from './_services/auth.service';
+import { HomeComponent } from './home/home.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
    declarations: [
       AppComponent,
       NavComponent,
       TracksComponent,
-      BottomPlayerComponent
+      BottomPlayerComponent,
+      HomeComponent,
+      RegisterComponent
    ],
    imports: [
       BrowserModule,
