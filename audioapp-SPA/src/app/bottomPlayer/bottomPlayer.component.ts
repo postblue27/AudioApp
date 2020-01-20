@@ -2,6 +2,8 @@ import { Component, OnInit, EventEmitter, Output, Input, SimpleChanges } from '@
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { faPause } from '@fortawesome/free-solid-svg-icons';
+import { faUndoAlt } from '@fortawesome/free-solid-svg-icons';
+import { faRedoAlt } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-bottomPlayer',
@@ -12,6 +14,8 @@ export class BottomPlayerComponent implements OnInit {
   faCoffee = faCoffee;
   faPlay = faPlay;
   faPause = faPause;
+  faUndoAlt = faUndoAlt;
+  faRedoAlt = faRedoAlt;
   @Input() activeTrackFromApp: any;
   constructor() { }
 
@@ -37,6 +41,13 @@ export class BottomPlayerComponent implements OnInit {
     const playIcon = document.getElementById('playIcon');
     const pauseIcon = document.getElementById('pauseIcon');
 
+    const undoDiv = document.getElementById('undoDiv');
+    const redoDiv = document.getElementById('redoDiv');
+
+    const progressLine = document.getElementById('progress');
+    const progressBar = document.getElementsByClassName('progressBar')[0];
+    const playerTimer = document.getElementById('playerTimer');
+
     pauseIcon.style.display = 'none';
 
     playPauseDiv.addEventListener('click', () => {
@@ -55,6 +66,60 @@ export class BottomPlayerComponent implements OnInit {
     audio.addEventListener('play', () => {
       playIcon.style.display = 'none';
       pauseIcon.style.display = '';
+
+      const dur = Math.floor(audio.duration);
+      let durmin;
+      if (Math.floor(dur / 60) < 10) {
+        durmin = '0' + Math.floor(dur / 60).toString();
+      } else {
+        durmin = Math.floor(dur / 60).toString();
+      }
+      let dursec;
+      if (Math.floor(dur % 60) < 10) {
+        dursec = '0' + Math.floor(dur % 60).toString();
+      } else {
+        dursec = Math.floor(dur % 60).toString();
+      }
+      playerTimer.children[1].textContent = durmin + ':' + dursec;
+    });
+
+    audio.addEventListener('timeupdate', () => {
+      progressLine.style.width = audio.currentTime / audio.duration * 100 + '%';
+      playerTimer.children[0].textContent = Math.floor(audio.currentTime).toString();
+
+      const curTime = Math.floor(audio.currentTime);
+      let curTimeMin;
+      if (Math.floor(curTime / 60) < 10) {
+        curTimeMin = '0' + Math.floor(curTime / 60).toString();
+      } else {
+        curTimeMin = Math.floor(curTime / 60).toString();
+      }
+      let curTimeSec;
+      if (Math.floor(curTime % 60) < 10) {
+        curTimeSec = '0' + Math.floor(curTime % 60).toString();
+      } else {
+        curTimeSec = Math.floor(curTime % 60).toString();
+      }
+      playerTimer.children[0].textContent = curTimeMin + ':' + curTimeSec;
+    });
+
+    undoDiv.addEventListener('click', () => {
+      audio.currentTime -= 10;
+    });
+    redoDiv.addEventListener('click', () => {
+      audio.currentTime += 10;
+    });
+
+    progressBar.addEventListener('mousedown', (e: MouseEvent) => {
+      if (audio.src !== '') {
+        // console.log(e.clientX, e.clientY);
+        const progressBarOffsets = progressBar.getBoundingClientRect();
+        const length = progressBarOffsets.right - progressBarOffsets.left;
+        const diff = e.clientX - progressBarOffsets.left;
+        const res = diff / length;
+        // console.log('length: ', length, 'diff', diff, 'res', res, '%');
+        audio.currentTime = audio.duration * res;
+      }
     });
   }
 }

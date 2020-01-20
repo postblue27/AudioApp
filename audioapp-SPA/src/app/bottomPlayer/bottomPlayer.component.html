@@ -1,13 +1,36 @@
 <div class="bottomPlayer">
-  <!--<audio controls id="player_a" loop autoplay></audio>-->
+  <div class="bottomPlayerInside">
 
-  <div>
-    <span id="performerNameSpan" class="text-light">...</span>
-    <span class="text-light"> - </span>
-    <span id="trackNameSpan" class="text-light">...</span>
-  </div>
-  <div id="playPauseDiv"> 
-    <span id="playIcon"><fa-icon [icon]="faPlay" style="color: rgb(208, 211, 212);"></fa-icon></span>
-    <span id="pauseIcon"><fa-icon [icon]="faPause" style="color: rgb(208, 211, 212);"></fa-icon></span>
+    <audio id="player_a" loop autoplay></audio>
+
+    <div class="progressBar">
+      <div id="underProgress"></div>
+      <div id="progress"></div>
+      <div id="playerTimer">
+        <b>00:00</b>
+        <em>00:00</em>
+      </div>
+
+      <span id="performerNameSpan" class="text-light trackSpan">...</span>
+      <span class="text-light trackSpan"> - </span>
+      <span id="trackNameSpan" class="text-light trackSpan">...</span>
+    </div>
+    
+
+    <div class="mt-2 mb-2">
+      <div id="undoDiv" class="iconDiv m-2">
+        <span id="undoIcon"><fa-icon [icon]="faUndoAlt" style="color: white;"></fa-icon></span>
+      </div>
+
+      <div id="playPauseDiv" class="iconDiv m-2"> 
+        <span id="playIcon"><fa-icon [icon]="faPlay" class="fa-lg" style="color: white;"></fa-icon></span>
+        <span id="pauseIcon"><fa-icon [icon]="faPause" class="fa-lg" style="color: white;"></fa-icon></span>
+      </div>
+
+      <div id="redoDiv" class="iconDiv m-2">
+        <span id="redoIcon"><fa-icon [icon]="faRedoAlt" style="color: white;"></fa-icon></span>
+      </div>
+    </div>
+
   </div>
 </div>

@@ -1,8 +1,79 @@
 .bottomPlayer{
     width: 100%;
+    height: 65px;
     position: fixed;
     bottom: 0;
     left: 0;
-    background: rgba(125, 60, 152, 1);
+    right: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+    background: rgba(43, 43, 43, 1);
     text-align: center;
+    
+}
+.bottomPlayerInside{
+    max-width: 480px;
+    height: 100%;
+    margin: auto;
+    position: relative;
+}
+.progressBar{
+    width: 100%;
+    height: 26px;
+    font-size: 14px;
+    position: relative;
+    /* background-color: rgb(10, 75, 25); */
+    border-bottom: 1px solid rgb(30, 215, 96);
+}
+#progress {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0; 
+    background-color: #14a04f;
+    z-index: -1;
+}
+#underProgress {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0; 
+    right: 0;
+    /* background-color: rgb(10, 60, 20); */
+    z-index: -2;
+}
+#playerTimer{
+    position: absolute;
+    height: 18px;
+    font-size: 11px;
+    left: 10px;
+    right: 10px;
+    top: 4px;
+    overflow: hidden;
+    color: rgba(255, 255, 255, 0.8);
+}
+#playerTimer b{
+    width: 40px;
+    font-weight: normal;
+    position: absolute;
+    top:0;
+    left: 0;
+    text-align: left;
+    color: rgba(255, 255, 255, 0.8);
+}
+#playerTimer em{
+    width: 40px;
+    font-weight: normal;
+    position: absolute;
+    top:0;
+    right: 0;
+    text-align: right;
+    color: rgba(255, 255, 255, 0.8);
+    font-style: inherit;
+}
+.iconDiv {
+    display: inline;
+}
+.trackSpan {
+    display: inline;
 }
