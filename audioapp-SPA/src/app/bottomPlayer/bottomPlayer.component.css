@@ -12,7 +12,7 @@
     
 }
 .bottomPlayerInside{
-    max-width: 480px;
+    max-width: 600px;
     height: 100%;
     margin: auto;
     position: relative;
@@ -23,14 +23,15 @@
     font-size: 14px;
     position: relative;
     /* background-color: rgb(10, 75, 25); */
-    border-bottom: 1px solid rgb(30, 215, 96);
+    border-bottom: 1px solid rgb(180, 0, 255);
+    cursor: pointer;
 }
 #progress {
     position: absolute;
     left: 0;
     top: 0;
     bottom: 0; 
-    background-color: #14a04f;
+    background-color: rgb(130, 0, 190);
     z-index: -1;
 }
 #underProgress {
@@ -71,9 +72,14 @@
     color: rgba(255, 255, 255, 0.8);
     font-style: inherit;
 }
+#playerTimer b, em{
+    user-select: none;
+}
 .iconDiv {
     display: inline;
+    cursor: pointer;
 }
 .trackSpan {
     display: inline;
+    user-select: none;
 }
