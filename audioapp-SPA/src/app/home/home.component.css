@@ -1,6 +1,7 @@
-.homeDiv{
+a{
+    color: inherit;
+    text-decoration: none;
 }
-
 .trackTable{
     width: 100%;
     max-width: 780px;
@@ -20,11 +21,11 @@
     margin: auto;
     position: relative;
     font-weight: 500;
+    cursor: pointer;
 }
 
 .trackTable td {
     text-align: left;
-    /* padding-left: 20px; */
     overflow: hidden;
 }
 
@@ -42,9 +43,11 @@
 } 
 .trackTable tr td:nth-child(4) {
     padding-left: 20px;
-    /* width: 40%; */
 }
 
+.downloadIcon:hover{
+    color:rgb(180, 0, 255);
+}
 
 @media screen and (max-width: 480px) {
     .trackDateAdded{

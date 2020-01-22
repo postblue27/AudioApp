@@ -39,13 +39,11 @@ export class HomeComponent implements OnInit {
 
   addListeners() {
     const trackDivs = document.getElementsByClassName('trackDiv');
-    console.log(trackDivs.length);
-    for (let i = 0; i < trackDivs.length; i++) {
-      const current = trackDivs[i] as HTMLElement;
-      current.addEventListener('click', () => {
-        current.style.backgroundColor = 'grey';
-        console.log(current);
-      });
+    const downloadButtons = document.getElementsByClassName('downloadIcon');
+    const homeDiv = document.getElementById('homeDiv');
+    for (let i = 0; i < downloadButtons.length; i++) {
+      const current = downloadButtons[i];
+      
     }
   }
 
@@ -70,9 +68,23 @@ export class HomeComponent implements OnInit {
 
   trackDivMouseOut(id: string) {
     const trackDiv = document.getElementById(id);
-    if(trackDiv.style.backgroundColor !== this.activeTrackColor) {
+    if (trackDiv.style.backgroundColor !== this.activeTrackColor) {
       trackDiv.style.backgroundColor = 'inherit';
     }
+  }
+
+  downloadIconMouseOver(e: Event) {
+    e.stopPropagation();
+  }
+
+  modifyHref(url: string, e: Event, pName: string, tName: string) {
+    e.stopPropagation();
+    const link = e.currentTarget as HTMLLinkElement;
+    const index = url.indexOf('upload/');
+    const newLink = url.substring(0, index + 7) + 'fl_attachment:' + pName + ' - '
+      + tName + '/' + url.substring(index + 7, url.length);
+    console.log('found' + newLink);
+    link.href = newLink;
   }
 
   cancelRegisterMode(registerMode: boolean) {

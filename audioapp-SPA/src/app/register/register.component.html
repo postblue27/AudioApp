@@ -6,20 +6,13 @@
     <input type="text" class="form-control" required name="username" [(ngModel)]="model.username" placeholder="Username">
   </div>
 
-  <div calss="form-group">
-    <label for="favTrack">What is your fav track?</label>
-    <select class="form-control" id="favTrack">
-    <option *ngFor="let track of tracksFromHome" [value]="track">{{track.publicId}}</option>
-    </select>
-  </div>
-
   <div class="form-group mt-2">
     <input type="password" class="form-control" required name="password" [(ngModel)]="model.password" placeholder="Password">
   </div>
 
   <div class="form-group text-center">
     <button class="btn btn-success" type="submit">Register</button>
-    <button class="btn btn-default" type="button" (click)="cancel()">Cancel</button>
+    <button class="btn btn-default text-light" type="button" (click)="cancel()">Cancel</button>
   </div>
   
 </form>
