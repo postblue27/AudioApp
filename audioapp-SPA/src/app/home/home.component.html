@@ -20,10 +20,20 @@
   </div>-->
 
   <div class="text-center mt-3">
-    <div class="" *ngFor="let track of tracks"> 
-      <div class="trackDiv" (click)="passActiveTrackSrc(track)" id={{track.publicId}}>
-        <span>{{track.performerName}} - {{track.trackName}}</span>
-      </div>
-    </div>
+    <table class="trackTable">
+      <tr>
+        <td></td>
+        <td>TITLE</td>
+        <td>ARTIST</td>
+        <td class="trackDateAdded">DATE</td>
+      </tr>
+      <tr *ngFor="let track of tracks" class="trackDiv" id={{track.publicId}} (click)="trackDivClick(track.publicId); passActiveTrackSrc(track);" 
+          (mouseover)="trackDivMouseOver(track.publicId)" (mouseout)="trackDivMouseOut(track.publicId)">
+        <td><fa-icon [icon]="faArrowAltCircleDown" class="fa-lg"></fa-icon></td>
+        <td><span>{{track.trackName}}</span></td>
+        <td><span>{{track.performerName}}</span></td>
+        <td class="trackDateAdded">yyyy-dd-mm</td>
+      </tr>
+  </table>
   </div>
 </div>

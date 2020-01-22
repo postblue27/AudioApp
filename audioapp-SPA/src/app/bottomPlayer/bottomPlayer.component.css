@@ -82,4 +82,5 @@
 .trackSpan {
     display: inline;
     user-select: none;
+    font-weight: 500;
 }
