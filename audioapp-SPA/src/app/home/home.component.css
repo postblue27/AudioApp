@@ -1,10 +1,26 @@
+#homeDiv{
+    width: 100%;
+    height: 100%;
+    /* padding-bottom: 65px; */
+}
+.homeDivInside{
+    /* display: inline-block; */
+    width: 60%;
+    position: fixed;
+    top: 0;
+    left: 20%;
+    padding-bottom: 10px;
+    bottom: 65px;
+    vertical-align: top;
+    overflow-y: auto;
+}
 a{
     color: inherit;
     text-decoration: none;
 }
 .trackTable{
-    width: 100%;
-    max-width: 780px;
+    width:100%;
+    /* max-width: 780px; */
     margin: auto;
     position: relative;
     table-layout: fixed;
@@ -21,7 +37,7 @@ a{
     margin: auto;
     position: relative;
     font-weight: 500;
-    cursor: pointer;
+    user-select: none;
 }
 
 .trackTable td {
@@ -47,6 +63,7 @@ a{
 
 .downloadIcon:hover{
     color:rgb(180, 0, 255);
+    cursor: pointer;
 }
 
 @media screen and (max-width: 480px) {

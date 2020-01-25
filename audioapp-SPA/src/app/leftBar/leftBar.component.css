@@ -1,0 +1,76 @@
+.leftBar{
+    background-color: rgb(17, 17, 17);
+    color: white;
+    width: 20%;
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 65px;
+}
+.leftBarUpperDiv{
+    margin: auto;
+    position: relative;
+    margin-top: 10%;
+    margin-left: 15%;
+}
+.leftBarUpperDiv tr{
+    height: 40px;
+    color: rgb(200,200,200);
+    margin: auto;
+    position: relative;
+    font-size: 25px;
+    font-weight: 500;
+    user-select: none;
+}
+
+.leftBarUpperDiv tr td:first-child{
+    width: 50px;
+}
+
+.leftBarUpperDiv tr:hover td:first-child{
+    color: rgb(180, 0, 255);
+    border-bottom: 3px solid rgb(180, 0, 255);
+}
+
+.leftBarUpperDiv tr:hover td:nth-child(2){
+    color: white;
+    border-bottom: 3px solid rgb(180, 0, 255);
+}
+
+.leftBarLowerDiv{
+    margin: auto;
+    position: relative;
+    margin-top: 15%;
+    margin-left: 15%;
+    margin-right: 20%;
+    user-select: none;
+}
+
+.infospanDiv{
+    color: rgb(150, 150, 150);
+    font-size: 14px;
+    font-weight: 300;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.playlistDiv{
+    margin-top: 2%;
+    height: 30px;
+    font-size: 18px;
+    color: rgb(200, 200, 200);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.playlistDiv:hover{
+    color: white;
+    border-bottom: 2px solid rgb(180, 0, 255);
+}
+
+.playlistSpan{
+    /* text-overflow: ellipsis; */
+}

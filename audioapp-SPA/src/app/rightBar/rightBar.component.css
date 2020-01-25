@@ -1,0 +1,11 @@
+.rightBar{
+    background-color: rgb(17, 17, 17);
+    color: white;
+    width: 20%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 65px;
+
+    overflow: auto;
+}

@@ -1,39 +1,44 @@
 <div id="homeDiv">
-  <div class="container mt-5">
-    <div *ngIf="!registerMode" style="text-align: center">
-      <h1>Find your match</h1>
-      <p class="lead">Come on in to view your matches... All you need to do is sign up!</p>
-      <div class="text-center">
-        <button class="btn btn-primary btn-lg m-1" (click)="registerToggle()">Register</button>
-        <button class="btn btn-info btn-lg m-1">Learn more</button>
-      </div>
-    </div>
+  
+  <div class="homeDivInside">
 
-    <div *ngIf="registerMode" class="container">
-      <div class="row justify-content-center">
-        <div class="col-4">
-          <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
+    <div class="container mt-5">
+      <div *ngIf="!registerMode" style="text-align: center">
+        <h1>Find your match</h1>
+        <p class="lead">Come on in to view your matches... All you need to do is sign up!</p>
+        <div class="text-center">
+          <button class="btn btn-primary btn-lg m-1" (click)="registerToggle()">Register</button>
+          <button class="btn btn-info btn-lg m-1">Learn more</button>
         </div>
       </div>
-    </div>
-  
-  </div>
 
-  <div *ngIf="!registerMode" class="text-center mt-3">
-    <table class="trackTable">
-      <tr>
-        <td></td>
-        <td>TITLE</td>
-        <td>ARTIST</td>
-        <td class="trackDateAdded">DATE</td>
-      </tr>
-      <tr *ngFor="let track of tracks" class="trackDiv" id={{track.publicId}} (click)="trackDivClick(track.publicId); passActiveTrackSrc(track);" 
-          (mouseover)="trackDivMouseOver(track.publicId)" (mouseout)="trackDivMouseOut(track.publicId)">
-        <td><a (click)="modifyHref(track.url, $event, track.performerName, track.trackName)"><fa-icon [icon]="faArrowAltCircleDown" (mouseover)="downloadIconMouseOver($event)" class="fa-lg downloadIcon"></fa-icon></a></td>
-        <td><span>{{track.trackName}}</span></td>
-        <td><span>{{track.performerName}}</span></td>
-        <td class="trackDateAdded">yyyy-dd-mm</td>
-      </tr>
-  </table>
+      <div *ngIf="registerMode" class="container">
+        <div class="row justify-content-center">
+          <div class="col-4">
+            <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
+          </div>
+        </div>
+      </div>
+    
+    </div>
+
+    <div *ngIf="!registerMode" class="text-center mt-3">
+      <table class="trackTable">
+        <tr>
+          <td></td>
+          <td>TITLE</td>
+          <td>ARTIST</td>
+          <td class="trackDateAdded">DATE</td>
+        </tr>
+        <tr *ngFor="let track of tracks" class="trackDiv" id={{track.publicId}} (click)="trackDivClick(track.publicId); passActiveTrackSrc(track);" 
+            (mouseover)="trackDivMouseOver(track.publicId)" (mouseout)="trackDivMouseOut(track.publicId)">
+          <td><a (click)="modifyHref(track.url, $event, track.performerName, track.trackName)"><fa-icon [icon]="faArrowAltCircleDown" (mouseover)="downloadIconMouseOver($event)" class="fa-lg downloadIcon"></fa-icon></a></td>
+          <td><span>{{track.trackName}}</span></td>
+          <td><span>{{track.performerName}}</span></td>
+          <td class="trackDateAdded">yyyy-dd-mm</td>
+        </tr>
+      </table>
+    </div>
   </div>
+  
 </div>

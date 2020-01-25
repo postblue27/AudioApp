@@ -10,6 +10,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AuthService } from './_services/auth.service';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
+import { LeftBarComponent } from './leftBar/leftBar.component';
+import { RightBarComponent } from './rightBar/rightBar.component';
 
 @NgModule({
    declarations: [
@@ -17,7 +19,9 @@ import { RegisterComponent } from './register/register.component';
       NavComponent,
       BottomPlayerComponent,
       HomeComponent,
-      RegisterComponent
+      RegisterComponent,
+      LeftBarComponent,
+      RightBarComponent
    ],
    imports: [
       BrowserModule,

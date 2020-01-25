@@ -7,7 +7,7 @@
     right: 0;
     padding-left: 10px;
     padding-right: 10px;
-    background: rgba(43, 43, 43, 1);
+    background: rgba(40, 40, 40, 1);
     text-align: center;
     
 }
@@ -79,6 +79,8 @@
     display: inline;
     cursor: pointer;
 }
+
+
 .trackSpan {
     display: inline;
     user-select: none;

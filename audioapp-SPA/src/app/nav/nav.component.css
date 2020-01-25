@@ -1,3 +1,7 @@
 nav{
     background-color: black;
+    width: 60%;
+    position: absolute;
+    top: 0;
+    left: 20%;
 }
