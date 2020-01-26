@@ -6,8 +6,78 @@
     top: 0;
     right: 0;
     bottom: 65px;
+}
 
+.rightBarUpperDiv{
+    width: 100%;
+    height: 250px;
+    text-align: center;
+    margin: auto;
+    margin-top: 50px;
+    padding-bottom: 10px;
+    /* border-bottom: 1px solid rgb(45,45,45); */
+}
+
+img{
+    object-fit: cover;
+    width: 160px;
+    height:160px;
+    border-radius: 5%;
+    border: 1px solid rgb(200,200,200);
+}
+
+.genreOftheDaySpan{
+    text-align: center;
+    color: rgb(200,200,200);
+    font-size: 22px;
+    user-select: none;
+}
+
+.genreOftheDaySpan:hover{
+    color: white;
+}
+
+.genreOfTheDayInfoSpan{
+    text-align: center;
+    color: rgb(100,100,100);
+    font-size: 18px;
+    user-select: none;
+}
+
+.rightBarLowerDiv{
+    width: 20%;
+    position: fixed;
+    top: 300px;
+    right: 0;
+    bottom: 65px;
+    user-select: none;
     overflow: auto;
+}
+
+.infospanDiv{
+    color: rgb(130, 130, 130);
+    font-size: 16px;
+    font-weight: 300;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.genreDiv{
+    margin-top: 2%;
+    height: 30px;
+    font-size: 16px;
+    color: rgb(200, 200, 200);
+    text-align: center;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.genreDiv:hover{
+    color: white;
+    border-bottom: 2px solid rgb(180, 0, 255);
 }
 
 @media screen and (max-width: 840px) {
