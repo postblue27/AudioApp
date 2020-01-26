@@ -7,6 +7,38 @@ nav{
     left: 20%;
 }
 
+.backFrontIcons{
+    width: 15%;
+    font-size: 25px;
+    color: rgb(200,200,200);
+}
+
+.navIcon{
+    display: inline-block;
+    width: 50px;
+    cursor: pointer;
+}
+
+.navIcon:hover{
+    color: white;
+}
+.searchForm{
+    width: 85%;
+}
+.searchIcon{
+    font-size: 20px;
+    color: rgb(200,200,200);
+}
+.searchFormInput{
+    margin-left: 3%;
+    width: 90%;
+    background-color: inherit;
+    border: none;
+    border-bottom: 1px solid rgb(200,200,200);
+    outline: none;
+    color: rgb(200,200,200);
+}
+
 @media screen and (max-width: 840px) {
     nav{
         width: 75%;
@@ -20,5 +52,8 @@ nav{
         width: 100%;
         left: 0;
         right: 0;
+    }
+    .backFrontIcons{
+        display: none;
     }
 }

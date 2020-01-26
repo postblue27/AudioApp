@@ -44,6 +44,8 @@ a{
 .trackTable td {
     text-align: left;
     overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .trackTable tr td:nth-child(1) {
@@ -67,7 +69,7 @@ a{
     cursor: pointer;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 615px) {
     .trackDateAdded{
         display: none;
     }
