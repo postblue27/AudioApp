@@ -3,6 +3,7 @@ import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faCompactDisc } from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-leftBar',
@@ -14,6 +15,7 @@ export class LeftBarComponent implements OnInit {
   faEnvelope = faEnvelope;
   faCompactDisc = faCompactDisc;
   faUser = faUser;
+  faPlus = faPlus;
   constructor() { }
 
   ngOnInit() {

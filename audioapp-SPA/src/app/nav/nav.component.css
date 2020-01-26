@@ -1,7 +1,24 @@
 nav{
     background-color: black;
     width: 60%;
+    height: 65px;
     position: absolute;
     top: 0;
     left: 20%;
+}
+
+@media screen and (max-width: 840px) {
+    nav{
+        width: 75%;
+        left: 25%;
+        right: 0;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    nav{
+        width: 100%;
+        left: 0;
+        right: 0;
+    }
 }
