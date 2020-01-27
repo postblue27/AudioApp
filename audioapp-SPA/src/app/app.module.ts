@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { LeftBarComponent } from './leftBar/leftBar.component';
 import { RightBarComponent } from './rightBar/rightBar.component';
+import { BottomMobileNavComponent } from './bottomMobileNav/bottomMobileNav.component';
 
 @NgModule({
    declarations: [
@@ -21,7 +22,8 @@ import { RightBarComponent } from './rightBar/rightBar.component';
       HomeComponent,
       RegisterComponent,
       LeftBarComponent,
-      RightBarComponent
+      RightBarComponent,
+      BottomMobileNavComponent
    ],
    imports: [
       BrowserModule,

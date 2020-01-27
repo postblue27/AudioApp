@@ -1,56 +1,59 @@
-<nav class="navbar navbar-expand-md navbar-dark">
-  <div class="backFrontIcons">
-    <div class="navIcon">
-      <fa-icon [icon]="faChevronLeft"></fa-icon>
-    </div>
-    <div class="navIcon">
-      <fa-icon [icon]="faChevronRight"></fa-icon>
-    </div>
-  </div>
-
-  <!-- Search form -->
-  <form class="searchForm">
-    <fa-icon [icon]="faSearch" class="searchIcon"></fa-icon>
-    <input class="searchFormInput" type="text" placeholder="Search" name="search"
-      aria-label="Search">
-  </form>
-  <!-- <a class="navbar-brand" href="#">Audio App</a>
-
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Library</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Profile</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Messages</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" (click)="logout()">Logout</a>
-      </li>
-    </ul> -->
-
-
-    <!-- <div *ngIf="loggedIn()" class="dropdown">
-      <a class="dropdown-toggle text-light">
-        Welcome, {{model.username}}
-      </a>
-    
-      <div class="dropdown-menu">
-        <a class="dropdown-item" href="#"><i class="fa fa-user"></i>Edit profile</a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#"><i class="fa fa-sign-out"></i>Logout</a>
+<nav class="">
+  <div class="navInside">
+    <div class="backFrontIcons">
+      <div class="navIcon">
+        <fa-icon [icon]="faChevronLeft"></fa-icon>
+      </div>
+      <div class="navIcon">
+        <fa-icon [icon]="faChevronRight"></fa-icon>
       </div>
     </div>
 
+    <!-- Search form -->
+    <div class="searchForm">
+      <form>
+        <div class="searchIconDiv"><fa-icon [icon]="faSearch" class="searchIcon"></fa-icon></div>
+        <input class="searchFormInput" type="text" placeholder="Search" name="search"
+          aria-label="Search">
+      </form>
+    </div>
+    <!-- <a class="navbar-brand" href="#">Audio App</a>
 
-    <form *ngIf="!loggedIn()" #loginForm="ngForm" class="form-inline my-2 my-lg-0" (ngSubmit)="login()">
-      <input class="form-control mr-sm-2" type="text" name="username" 
-        placeholder="Username" required [(ngModel)]="model.username">
-      <input class="form-control mr-sm-2" type="password" name="password" 
-        placeholder="Password" required [(ngModel)]="model.password">
-      <button [disabled]="!loginForm.valid" class="btn btn-success my-2 my-sm-0" type="submit">Login</button>
-    </form> -->
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Library</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Messages</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="logout()">Logout</a>
+        </li>
+      </ul> -->
 
+
+      <!-- <div *ngIf="loggedIn()" class="dropdown">
+        <a class="dropdown-toggle text-light">
+          Welcome, {{model.username}}
+        </a>
+      
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#"><i class="fa fa-user"></i>Edit profile</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#"><i class="fa fa-sign-out"></i>Logout</a>
+        </div>
+      </div>
+
+
+      <form *ngIf="!loggedIn()" #loginForm="ngForm" class="form-inline my-2 my-lg-0" (ngSubmit)="login()">
+        <input class="form-control mr-sm-2" type="text" name="username" 
+          placeholder="Username" required [(ngModel)]="model.username">
+        <input class="form-control mr-sm-2" type="password" name="password" 
+          placeholder="Password" required [(ngModel)]="model.password">
+        <button [disabled]="!loginForm.valid" class="btn btn-success my-2 my-sm-0" type="submit">Login</button>
+      </form> -->
+    </div>
 </nav>

@@ -86,3 +86,9 @@
     user-select: none;
     font-weight: 500;
 }
+
+@media screen and (max-width: 650px) {
+    .bottomPlayer{
+        bottom: 45px;
+    }
+}

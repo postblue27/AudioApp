@@ -7,31 +7,47 @@ nav{
     left: 20%;
 }
 
+.navInside{
+    height: 100%;
+    width:100%;
+}
+
 .backFrontIcons{
+    display: inline-block;
     width: 15%;
+    margin-left: 5%;
+    margin-top: 15px;
     font-size: 25px;
     color: rgb(200,200,200);
 }
-
 .navIcon{
     display: inline-block;
-    width: 50px;
+    width: 50%;
     cursor: pointer;
 }
-
 .navIcon:hover{
     color: white;
 }
+
 .searchForm{
-    width: 85%;
+    width: 80%;
+    display: inline-block;
+    margin-top: 15px;
+}
+
+.searchIconDiv{
+    display: inline;
 }
 .searchIcon{
-    font-size: 20px;
+    /* font-size: 20px; */
     color: rgb(200,200,200);
 }
 .searchFormInput{
-    margin-left: 3%;
-    width: 90%;
+    display: inline;
+    min-width: 80%;
+    max-width: 100%;
+    margin-left: 5px;
+
     background-color: inherit;
     border: none;
     border-bottom: 1px solid rgb(200,200,200);
@@ -55,5 +71,17 @@ nav{
     }
     .backFrontIcons{
         display: none;
+    }
+    .searchForm{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .searchIconDiv{
+        display: none;
+    }
+    .searchFormInput{
+        width:100%;
     }
 }

@@ -7,7 +7,7 @@
     bottom: 65px;
 }
 .leftBarUpperDivMain{
-    height: 180px;
+    height: 120px;
     width: 100%;
     margin: auto;
     position: relative;
@@ -23,7 +23,7 @@
 .leftBarUpperDiv tr{
     height: 40px;
     color: rgb(200,200,200);
-    font-size: 25px;
+    font-size: 22px;
     font-weight: 400;
     user-select: none;
     cursor: pointer;
@@ -46,7 +46,7 @@
 .leftBarLowerDiv{
     position: fixed;
     width: 20%;
-    top: 250px;
+    top: 200px;
     left:0;
     bottom: 125px;
     user-select: none;
@@ -134,7 +134,7 @@
     }
 }
 
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 650px) {
     .leftBar{
         display:none;
     }
