@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 import { AuthService } from '../_services/auth.service';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faSignInAlt } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-nav',
@@ -14,18 +15,13 @@ export class NavComponent implements OnInit {
   faChevronLeft = faChevronLeft;
   faChevronRight = faChevronRight;
   faSearch = faSearch;
+  faSignInAlt = faSignInAlt;
 
+  @Output() loginModeEmitter = new EventEmitter();
+  
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
-  }
-
-  login() {
-    this.authService.login(this.model).subscribe(next => {
-      console.log('logged successfully');
-    }, error => {
-      console.log('Failed to login');
-    });
   }
 
   loggedIn() {
@@ -36,6 +32,10 @@ export class NavComponent implements OnInit {
   logout() {
     localStorage.removeItem('token');
     console.log('logged out');
+  }
+
+  sendLoginMode() {
+    this.loginModeEmitter.emit(true);
   }
 
 }

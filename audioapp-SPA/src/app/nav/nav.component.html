@@ -17,6 +17,14 @@
           aria-label="Search">
       </form>
     </div>
+
+    <div *ngIf="!loggedIn()" class="loginButtonDiv" (click)="sendLoginMode()">
+      <span>Login<fa-icon [icon]="faSignInAlt" class="ml-2"></fa-icon></span>
+    </div>
+
+    <div *ngIf="loggedIn()" class="loginButtonDiv">
+      <span>Welcome, {{model.username}}</span>
+    </div>
     <!-- <a class="navbar-brand" href="#">Audio App</a>
 
       <ul class="navbar-nav mr-auto">

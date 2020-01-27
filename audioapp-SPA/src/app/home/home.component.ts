@@ -18,6 +18,8 @@ export class HomeComponent implements OnInit {
   faPause = faPause;
   faArrowAltCircleDown = faArrowCircleDown;
   activeTrackColor = 'rgb(70, 0, 100)';
+
+  loginMode = false;
   // @Output() activeTrack = new EventEmitter();
 
   constructor(private http: HttpClient) { }
@@ -36,16 +38,6 @@ export class HomeComponent implements OnInit {
     }, error => {
       console.log(error);
     });
-  }
-
-  addListeners() {
-    const trackDivs = document.getElementsByClassName('trackDiv');
-    const downloadButtons = document.getElementsByClassName('downloadIcon');
-    const homeDiv = document.getElementById('homeDiv');
-    for (let i = 0; i < downloadButtons.length; i++) {
-      const current = downloadButtons[i];
-      
-    }
   }
 
   trackDivClick(id: string) {
@@ -92,14 +84,11 @@ export class HomeComponent implements OnInit {
     this.registerMode = registerMode;
   }
 
-  passActiveTrackSrc(track: any) {
-    // this.activeTrack.emit(track);
+  changeActiveTrack(track: any) {
     this.activeTrack = track;
   }
 
-  
-
-  passActiveTrack(track: any) {
-    this.activeTrack = track;
+  enableLoginMode(loginMode: boolean) {
+    this.loginMode = loginMode;
   }
 }

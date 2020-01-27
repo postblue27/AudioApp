@@ -30,7 +30,7 @@ nav{
 }
 
 .searchForm{
-    width: 80%;
+    width: 60%;
     display: inline-block;
     margin-top: 15px;
 }
@@ -44,7 +44,7 @@ nav{
 }
 .searchFormInput{
     display: inline;
-    min-width: 80%;
+    min-width: 90%;
     max-width: 100%;
     margin-left: 5px;
 
@@ -53,6 +53,26 @@ nav{
     border-bottom: 1px solid rgb(200,200,200);
     outline: none;
     color: rgb(200,200,200);
+}
+
+.loginButtonDiv{
+    width: 20%;
+    height: 100%;
+    display: inline-block;
+    margin-top: 15px;
+    color: rgb(200,200,200);
+    font-size: 22px;
+    text-align: center;
+    user-select: none;
+    cursor: pointer;
+}
+
+.loginButtonDiv:hover span{
+    color: white;
+}
+
+.loginButtonDiv:hover span fa-icon{
+    color: rgb(180, 0, 255);
 }
 
 @media screen and (max-width: 840px) {
@@ -74,6 +94,9 @@ nav{
     }
     .searchForm{
         width: 100%;
+    }
+    .loginButtonDiv{
+        display: none;
     }
 }
 
