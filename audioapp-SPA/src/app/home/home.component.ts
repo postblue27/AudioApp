@@ -13,11 +13,12 @@ import { inherits } from 'util';
 export class HomeComponent implements OnInit {
   registerMode = false;
   tracks: any;
+  activeTrack: any;
   faPlay = faPlay;
   faPause = faPause;
   faArrowAltCircleDown = faArrowCircleDown;
   activeTrackColor = 'rgb(70, 0, 100)';
-  @Output() activeTrack = new EventEmitter();
+  // @Output() activeTrack = new EventEmitter();
 
   constructor(private http: HttpClient) { }
 
@@ -92,6 +93,13 @@ export class HomeComponent implements OnInit {
   }
 
   passActiveTrackSrc(track: any) {
-    this.activeTrack.emit(track);
+    // this.activeTrack.emit(track);
+    this.activeTrack = track;
+  }
+
+  
+
+  passActiveTrack(track: any) {
+    this.activeTrack = track;
   }
 }

@@ -8,9 +8,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'audioapp-SPA';
-  activeTrack: any;
-
-  passActiveTrack(track: any) {
-    this.activeTrack = track;
-  }
+  
 }
