@@ -22,8 +22,15 @@
       <span>Login<fa-icon [icon]="faSignInAlt" class="ml-2"></fa-icon></span>
     </div>
 
-    <div *ngIf="loggedIn()" class="loginButtonDiv">
-      <span>Welcome, {{model.username}}</span>
+    <div *ngIf="loggedIn()" class="dropdown loginButtonDiv">
+      <button class="dropdown-toggle btn btn-secondary text-light" href="#" role="button" 
+        data-toggle="dropdown" data-target="loginDropdown">Welcome, {{model.username}}</button>
+
+      <div id="loginDropdown" class="dropdown-menu">
+        <a class="dropdown-item" href="#">Edit profile</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#" (click)="logout()">Logout</a>
+      </div>
     </div>
     <!-- <a class="navbar-brand" href="#">Audio App</a>
 

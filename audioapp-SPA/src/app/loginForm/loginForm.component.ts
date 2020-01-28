@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { AuthService } from '../_services/auth.service';
 export class LoginFormComponent implements OnInit {
 
   model: any = {};
-
+  @Output() loginModeEmitter = new EventEmitter();
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
@@ -18,9 +18,15 @@ export class LoginFormComponent implements OnInit {
 
   login() {
     this.authService.login(this.model).subscribe(next => {
+      this.loginModeEmitter.emit(false);
       console.log('logged successfully');
     }, error => {
+      this.loginModeEmitter.emit(true);
       console.log('Failed to login');
     });
+  }
+
+  cancelLoginMode() {
+    this.loginModeEmitter.emit(false);
   }
 }

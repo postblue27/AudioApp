@@ -1,7 +1,8 @@
-<form #loginForm="ngForm" class="form-inline my-2 my-lg-0" (ngSubmit)="login()">
-  <input class="form-control mr-sm-2" type="text" name="username" 
+<form #loginForm="ngForm" class="loginForm" (ngSubmit)="login()">
+  <input class="form-control searchFormInput" type="text" name="username" 
     placeholder="Username" required [(ngModel)]="model.username">
-  <input class="form-control mr-sm-2" type="password" name="password" 
+  <input class="form-control searchFormInput" type="password" name="password" 
     placeholder="Password" required [(ngModel)]="model.password">
-  <button [disabled]="!loginForm.valid" class="btn btn-success my-2 my-sm-0" type="submit">Login</button>
+  <button [disabled]="!loginForm.valid" class="formSubmitButton btn-secondary" type="submit">Login</button>
+  <button class="formSubmitButton btn-secondary" type="reset" (click)="cancelLoginMode()">Cancel</button>
 </form>

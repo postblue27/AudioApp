@@ -4,6 +4,7 @@ import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { faPause } from '@fortawesome/free-solid-svg-icons';
 import { faArrowCircleDown } from '@fortawesome/free-solid-svg-icons';
 import { inherits } from 'util';
+import { AuthService } from '../_services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -22,7 +23,7 @@ export class HomeComponent implements OnInit {
   loginMode = false;
   // @Output() activeTrack = new EventEmitter();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private authService: AuthService) { }
 
   ngOnInit() {
     this.getTracks();
@@ -91,4 +92,5 @@ export class HomeComponent implements OnInit {
   enableLoginMode(loginMode: boolean) {
     this.loginMode = loginMode;
   }
+
 }

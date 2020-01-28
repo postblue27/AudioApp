@@ -44,8 +44,10 @@
         </tr>
       </table>
     </div>
+    
+    
 
-    <app-loginForm *ngIf="loginMode"></app-loginForm>
+    <app-loginForm *ngIf="loginMode" (loginModeEmitter)="enableLoginMode($event)"></app-loginForm>
 
   </div>
   

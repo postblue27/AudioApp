@@ -13,6 +13,7 @@
     bottom: 65px;
     vertical-align: top;
     overflow-y: auto;
+    background-color: rgb(25, 25, 25);
 }
 a{
     color: inherit;

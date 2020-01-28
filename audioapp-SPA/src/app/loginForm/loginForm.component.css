@@ -1,0 +1,20 @@
+.searchForm{
+    width: 80%;
+    margin-right: 10%;
+}
+
+.searchFormInput{
+    min-width: 90%;
+    max-width: 100%;
+    margin-left: 5px;
+
+    background-color: inherit;
+    border: none;
+    border-bottom: 1px solid rgb(200,200,200);
+    outline: none;
+    color: rgb(200,200,200);
+}
+
+.formSubmitButton{
+    
+}

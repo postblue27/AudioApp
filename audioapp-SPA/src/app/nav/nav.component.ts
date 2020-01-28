@@ -11,7 +11,7 @@ import { faSignInAlt } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
-  model: any = {};
+  model: any = localStorage.getItem('username');
   faChevronLeft = faChevronLeft;
   faChevronRight = faChevronRight;
   faSearch = faSearch;
@@ -24,18 +24,15 @@ export class NavComponent implements OnInit {
   ngOnInit() {
   }
 
-  loggedIn() {
-    const token = localStorage.getItem('token');
-    return !!token;
-  }
-
   logout() {
-    localStorage.removeItem('token');
-    console.log('logged out');
+    this.authService.logout();
   }
 
   sendLoginMode() {
     this.loginModeEmitter.emit(true);
   }
 
+  loggedIn() {
+    return this.authService.loggedIn();
+  }
 }

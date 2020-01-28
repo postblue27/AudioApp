@@ -15,9 +15,21 @@ constructor(private http: HttpClient) { }
           const user = response;
           if (user) {
             localStorage.setItem('token', user.token);
+            console.log(user);
+            // localStorage.setItem('username', user.username);
           }
         })
       );
+  }
+
+  loggedIn() {
+    const token = localStorage.getItem('token');
+    return !!token;
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    console.log('logged out');
   }
 
   register(model: any) {
