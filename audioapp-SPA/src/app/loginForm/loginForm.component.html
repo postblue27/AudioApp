@@ -1,8 +1,45 @@
-<form #loginForm="ngForm" class="loginForm" (ngSubmit)="login()">
-  <input class="form-control searchFormInput" type="text" name="username" 
-    placeholder="Username" required [(ngModel)]="model.username">
-  <input class="form-control searchFormInput" type="password" name="password" 
-    placeholder="Password" required [(ngModel)]="model.password">
-  <button [disabled]="!loginForm.valid" class="formSubmitButton btn-secondary" type="submit">Login</button>
-  <button class="formSubmitButton btn-secondary" type="reset" (click)="cancelLoginMode()">Cancel</button>
-</form>
+<div class="loginFormMainDiv">
+  <div class="loginFormInside">
+  
+    
+    <div *ngIf="!registerMode">
+      <div class="closeIconDiv" (click)="cancelLoginMode()">
+        <fa-icon [icon]="faTimes"></fa-icon>
+      </div>
+      <div class="signInSpanDiv">
+        Login
+      </div>
+
+      <form #loginForm="ngForm" class="loginForm" (ngSubmit)="login()">
+        <input class="loginFormInput" type="text" name="username" 
+          placeholder="Username" required [(ngModel)]="model.username">
+        <input class="loginFormInput" type="password" name="password" 
+          placeholder="Password" required [(ngModel)]="model.password">
+        <button [disabled]="!loginForm.valid" class="formSubmitButton" type="submit">Login</button>
+      </form>
+      
+      <button class="btn-secondary" (click)="enableRegisterMode()">Register</button>
+    </div>
+
+
+    <form *ngIf="registerMode" #registerForm="ngForm" (ngSubmit)="register()">
+      <h2 class="text-center text-primary">Sign Up</h2>
+      <hr>
+
+      <div class="form-group">
+        <input type="text" class="form-control" required name="username" [(ngModel)]="model.username" placeholder="Username">
+      </div>
+
+      <div class="form-group mt-2">
+        <input type="password" class="form-control" required name="password" [(ngModel)]="model.password" placeholder="Password">
+      </div>
+
+      <div class="form-group text-center">
+        <button class="btn btn-success" type="submit">Register</button>
+        <button class="btn btn-default text-light" type="button" (click)="cancelRegistrationMode()">Cancel</button>
+      </div>
+      
+    </form>
+
+  </div>
+</div>

@@ -5,6 +5,7 @@
   <app-rightBar></app-rightBar>
   <app-bottomPlayer [activeTrackFromApp]="activeTrack"></app-bottomPlayer>
   <app-bottomMobileNav></app-bottomMobileNav>
+  <app-loginForm *ngIf="loginMode" (loginModeEmitter)="enableLoginMode($event)"></app-loginForm>
 
   <div class="homeDivInside">
 
@@ -45,10 +46,6 @@
       </table>
     </div>
     
-    
-
-    <app-loginForm *ngIf="loginMode" (loginModeEmitter)="enableLoginMode($event)"></app-loginForm>
-
   </div>
   
 </div>
