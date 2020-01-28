@@ -6,8 +6,8 @@
       <div class="closeIconDiv" (click)="cancelLoginMode()">
         <fa-icon [icon]="faTimes"></fa-icon>
       </div>
-      <div class="signInSpanDiv">
-        Login
+      <div class="signInDiv">
+        Sign In
       </div>
 
       <form #loginForm="ngForm" class="loginForm" (ngSubmit)="login()">
@@ -18,28 +18,29 @@
         <button [disabled]="!loginForm.valid" class="formSubmitButton" type="submit">Login</button>
       </form>
       
-      <button class="btn-secondary" (click)="enableRegisterMode()">Register</button>
+      <div class="registerDiv" (click)="enableRegisterMode()">
+        <span>Sign Up</span>
+      </div>
     </div>
 
 
-    <form *ngIf="registerMode" #registerForm="ngForm" (ngSubmit)="register()">
-      <h2 class="text-center text-primary">Sign Up</h2>
-      <hr>
 
-      <div class="form-group">
-        <input type="text" class="form-control" required name="username" [(ngModel)]="model.username" placeholder="Username">
+    <div *ngIf="registerMode">
+      <div class="closeIconDiv" (click)="cancelLoginMode()">
+        <fa-icon [icon]="faTimes"></fa-icon>
       </div>
-
-      <div class="form-group mt-2">
-        <input type="password" class="form-control" required name="password" [(ngModel)]="model.password" placeholder="Password">
+      <div class="signInDiv">Sign Up</div>
+      <form #registerForm="ngForm" class="loginForm" (ngSubmit)="register()">
+          <input type="text" class="loginFormInput" required name="username" 
+           [(ngModel)]="model.username" placeholder="Username">
+          <input type="password" class="loginFormInput" required name="password" 
+            [(ngModel)]="model.password" placeholder="Password">
+          <button class="formSubmitButton" type="submit">Register</button>
+      </form>
+      <div class="registerDiv" (click)="cancelRegistrationMode()">
+        <span>Cancel</span>
       </div>
-
-      <div class="form-group text-center">
-        <button class="btn btn-success" type="submit">Register</button>
-        <button class="btn btn-default text-light" type="button" (click)="cancelRegistrationMode()">Cancel</button>
-      </div>
-      
-    </form>
+    </div>
 
   </div>
 </div>

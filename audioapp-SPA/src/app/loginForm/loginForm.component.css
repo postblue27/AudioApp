@@ -24,13 +24,26 @@
     user-select: none;
 }
 
-.signInSpanDiv{
+.signInDiv{
     width: 100%;
     text-align: center;
     margin-top: 10%;
     font-size: 26px;
     font-weight: 500;
     color: white;
+}
+
+.registerDiv{
+    width: 100%;
+    text-align: center;
+    margin-top: 10%;
+    font-size: 14px;
+    color: rgb(200,200,200);
+}
+
+.registerDiv span:hover{
+    color:white;
+    cursor: pointer;
 }
 
 .closeIconDiv{
