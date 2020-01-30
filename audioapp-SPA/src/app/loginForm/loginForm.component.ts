@@ -23,10 +23,10 @@ export class LoginFormComponent implements OnInit {
     this.authService.login(this.model).subscribe(next => {
       this.loginModeEmitter.emit(false);
       console.log('logged successfully');
-    }, error => {
-      this.loginModeEmitter.emit(true);
-      console.log('Failed to login');
-    });
+    });//, error => {
+     // this.loginModeEmitter.emit(true);
+    //  console.log('Failed to login');
+    //});
   }
 
   cancelLoginMode() {

@@ -14,6 +14,7 @@ import { LeftBarComponent } from './leftBar/leftBar.component';
 import { RightBarComponent } from './rightBar/rightBar.component';
 import { BottomMobileNavComponent } from './bottomMobileNav/bottomMobileNav.component';
 import { LoginFormComponent } from './loginForm/loginForm.component';
+import { ErrorInterceptor, ErrorInterceptorProvider } from './_services/error.interceptor';
 
 @NgModule({
    declarations: [
@@ -34,7 +35,8 @@ import { LoginFormComponent } from './loginForm/loginForm.component';
       FontAwesomeModule
    ],
    providers: [
-      AuthService
+      AuthService,
+      ErrorInterceptorProvider
    ],
    bootstrap: [
       AppComponent
