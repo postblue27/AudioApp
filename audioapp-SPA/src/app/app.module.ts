@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import {BsDropdownModule} from 'ngx-bootstrap';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -16,6 +17,10 @@ import { RightBarComponent } from './rightBar/rightBar.component';
 import { BottomMobileNavComponent } from './bottomMobileNav/bottomMobileNav.component';
 import { LoginFormComponent } from './loginForm/loginForm.component';
 import { ErrorInterceptor, ErrorInterceptorProvider } from './_services/error.interceptor';
+import { LibraryComponent } from './library/library.component';
+import { ProfileComponent } from './profile/profile.component';
+import { appRoutes } from './routes';
+
 
 @NgModule({
    declarations: [
@@ -27,14 +32,17 @@ import { ErrorInterceptor, ErrorInterceptorProvider } from './_services/error.in
       LeftBarComponent,
       RightBarComponent,
       BottomMobileNavComponent,
-      LoginFormComponent
+      LoginFormComponent,
+      LibraryComponent,
+      ProfileComponent
    ],
    imports: [
       BrowserModule,
       HttpClientModule,
       FormsModule,
       FontAwesomeModule,
-      BsDropdownModule.forRoot()
+      BsDropdownModule.forRoot(),
+      RouterModule.forRoot(appRoutes)
    ],
    providers: [
       AuthService,

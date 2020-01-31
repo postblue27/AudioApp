@@ -2,21 +2,29 @@
 
   <div class="leftBarUpperDivMain">
     <table class="leftBarUpperDiv">
+      
       <tr>
-        <td><fa-icon [icon]="faHome"></fa-icon></td>
-        <td><span>Home</span></td>
+        <a [routerLink]="['/home']" routerLinkActive="active" >
+          <td><fa-icon [icon]="faHome"></fa-icon></td>
+          <td><span>Home</span></td>
+        </a>
       </tr>
+      
       <!-- <tr>
         <td><fa-icon [icon]="faEnvelope"></fa-icon></td>
         <td><span>Messages</span></td>
       </tr> -->
       <tr>
-        <td><fa-icon [icon]="faCompactDisc"></fa-icon></td>
-        <td><span>Library</span></td>
+        <a [routerLink]="['/library']" routerLinkActive="active">
+          <td><fa-icon [icon]="faCompactDisc"></fa-icon></td>
+          <td><span>Library</span></td>
+        </a>
       </tr>
       <tr>
-        <td><fa-icon [icon]="faUser"></fa-icon></td>
-        <td><span>Profile</span></td>
+        <a [routerLink]="['/profile']" routerLinkActive="active">
+          <td><fa-icon [icon]="faUser"></fa-icon></td>
+          <td><span>Profile</span></td>
+        </a>
       </tr>
     </table>
   </div>

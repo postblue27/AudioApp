@@ -29,16 +29,21 @@
     cursor: pointer;
 }
 
-.leftBarUpperDiv tr td:first-child{
+.leftBarUpperDiv tr a{
+    color: inherit;
+    text-decoration: none;
+}
+
+.leftBarUpperDiv tr a td:first-child{
     width: 50px;
 }
 
-.leftBarUpperDiv tr:hover td:first-child{
+.leftBarUpperDiv tr a:hover td:first-child{
     color: rgb(180, 0, 255);
     border-bottom: 3px solid rgb(180, 0, 255);
 }
 
-.leftBarUpperDiv tr:hover td:nth-child(2){
+.leftBarUpperDiv tr a:hover td:nth-child(2){
     color: white;
     border-bottom: 3px solid rgb(180, 0, 255);
 }
