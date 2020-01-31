@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
+import {BsDropdownModule} from 'ngx-bootstrap';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -32,7 +33,8 @@ import { ErrorInterceptor, ErrorInterceptorProvider } from './_services/error.in
       BrowserModule,
       HttpClientModule,
       FormsModule,
-      FontAwesomeModule
+      FontAwesomeModule,
+      BsDropdownModule.forRoot()
    ],
    providers: [
       AuthService,

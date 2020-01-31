@@ -22,11 +22,12 @@
       <span>Login<fa-icon [icon]="faSignInAlt" class="ml-2"></fa-icon></span>
     </div>
 
-    <div *ngIf="loggedIn()" class="dropdown loginButtonDiv">
-      <button class="dropdown-toggle btn btn-secondary text-light" href="#" role="button" 
-        data-toggle="dropdown" data-target="loginDropdown">Welcome, {{authService.decodedToken?.unique_name}}</button>
+    <div *ngIf="loggedIn()" class="dropdown loggedUserDropdown" dropdown>
+      <a class="dropdown-toggle text-light loggedUserText" dropdownToggle>
+        Welcome, {{authService.decodedToken?.unique_name}}
+      </a>
 
-      <div id="loginDropdown" class="dropdown-menu">
+      <div class="dropdown-menu mt-1" *dropdownMenu>
         <a class="dropdown-item" href="#">Edit profile</a>
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="#" (click)="logout()">Logout</a>

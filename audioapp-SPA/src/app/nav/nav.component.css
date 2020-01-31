@@ -67,6 +67,22 @@ nav{
     cursor: pointer;
 }
 
+.loggedUserDropdown{
+    width: 20%;
+    display: inline-block;
+    padding-top: 15px;
+    color: rgb(200,200,200);
+    text-align: center;
+    user-select: none;
+    cursor: pointer;
+}
+
+.loggedUserText{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 .loginButtonDiv:hover span{
     color: white;
 }
