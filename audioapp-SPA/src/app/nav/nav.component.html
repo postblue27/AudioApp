@@ -24,7 +24,7 @@
 
     <div *ngIf="loggedIn()" class="dropdown loginButtonDiv">
       <button class="dropdown-toggle btn btn-secondary text-light" href="#" role="button" 
-        data-toggle="dropdown" data-target="loginDropdown">Welcome, {{model.username}}</button>
+        data-toggle="dropdown" data-target="loginDropdown">Welcome, {{authService.decodedToken?.unique_name}}</button>
 
       <div id="loginDropdown" class="dropdown-menu">
         <a class="dropdown-item" href="#">Edit profile</a>
