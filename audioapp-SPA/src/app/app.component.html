@@ -1,4 +1,8 @@
-
-
-<app-home></app-home>
+<app-nav></app-nav>
+<app-loginForm *ngIf="this.authService.isLoginModeEnabled()"></app-loginForm>
+<app-leftBar></app-leftBar>
+<app-rightBar></app-rightBar>
+<app-bottomMobileNav></app-bottomMobileNav>
+<router-outlet></router-outlet>
+<app-bottomPlayer></app-bottomPlayer>
 <!--(activeTrack)="passActiveTrack($event)">-->

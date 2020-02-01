@@ -17,8 +17,6 @@ export class NavComponent implements OnInit {
   faChevronRight = faChevronRight;
   faSearch = faSearch;
   faSignInAlt = faSignInAlt;
-
-  @Output() loginModeEmitter = new EventEmitter();
   
   constructor(public authService: AuthService, private alertify: AlertifyService) { }
 
@@ -28,11 +26,10 @@ export class NavComponent implements OnInit {
   logout() {
     this.authService.logout();
     this.alertify.message('logged out');
-
   }
 
   sendLoginMode() {
-    this.loginModeEmitter.emit(true);
+    this.authService.enableLoginMode();
   }
 
   loggedIn() {

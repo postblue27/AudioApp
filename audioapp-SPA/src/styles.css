@@ -11,6 +11,19 @@ html, body{
     overflow: hidden;
 }
 
+.contentDiv{
+    /* display: inline-block; */
+    width: 60%;
+    position: fixed;
+    top: 65px;
+    left: 20%;
+    padding-bottom: 10px;
+    bottom: 65px;
+    vertical-align: top;
+    overflow-y: auto;
+    background-color: rgb(25, 25, 25);
+}
+
 ::-webkit-scrollbar {
     width: 11px;
 }
@@ -31,19 +44,25 @@ html, body{
     .rightBar{
         display: none;
     }
-    .homeDivInside{
-        width: 75%;
-        left: 25%;
-        right: 0;
-    }
-    nav{
-        width: 75%;
-        left: 25%;
-        right: 0;
-    }
     
     .leftBar{
         width: 25%;
     }
 }
 
+@media screen and (max-width: 840px) {
+    .contentDiv{
+        width: 75%;
+        left: 25%;
+        right: 0;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .contentDiv{
+        width: 100%;
+        left: 0;
+        right: 0;
+        bottom:110px;
+    }
+}

@@ -5,6 +5,7 @@ import { faPause } from '@fortawesome/free-solid-svg-icons';
 import { faArrowCircleDown } from '@fortawesome/free-solid-svg-icons';
 import { inherits } from 'util';
 import { AuthService } from '../_services/auth.service';
+import { TrackService } from '../_services/track.service';
 
 @Component({
   selector: 'app-home',
@@ -12,25 +13,16 @@ import { AuthService } from '../_services/auth.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  registerMode = false;
   tracks: any;
-  activeTrack: any;
   faPlay = faPlay;
   faPause = faPause;
   faArrowAltCircleDown = faArrowCircleDown;
   activeTrackColor = 'rgb(70, 0, 100)';
 
-  loginMode = false;
-  // @Output() activeTrack = new EventEmitter();
-
-  constructor(private http: HttpClient, private authService: AuthService) { }
+  constructor(private http: HttpClient, private authService: AuthService, private trackService: TrackService) { }
 
   ngOnInit() {
     this.getTracks();
-  }
-
-  registerToggle() {
-    this.registerMode = true;
   }
 
   getTracks() {
@@ -81,16 +73,8 @@ export class HomeComponent implements OnInit {
     link.href = newLink;
   }
 
-  cancelRegisterMode(registerMode: boolean) {
-    this.registerMode = registerMode;
-  }
-
   changeActiveTrack(track: any) {
-    this.activeTrack = track;
-  }
-
-  enableLoginMode(loginMode: boolean) {
-    this.loginMode = loginMode;
+    this.trackService.setActiveTrack(track);
   }
 
 }

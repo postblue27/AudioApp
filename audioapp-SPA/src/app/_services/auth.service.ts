@@ -9,10 +9,24 @@ import { tokenName } from '@angular/compiler';
 })
 export class AuthService {
   baseUrl = 'http://localhost:5000/api/auth/';
+  loginMode: boolean = false;
   jwtHelper = new JwtHelperService();
   decodedToken: any;
 
-constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { }
+
+  enableLoginMode() {
+    this.loginMode = true;
+  }
+
+  disableLoginMode() {
+    this.loginMode = false;
+  }
+
+  isLoginModeEnabled() {
+    return this.loginMode;
+  }
+
   login(model: any){
     return this.http.post(this.baseUrl + 'login', model)
       .pipe(

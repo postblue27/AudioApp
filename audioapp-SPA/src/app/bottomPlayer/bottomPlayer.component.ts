@@ -1,37 +1,40 @@
-import { Component, OnInit, EventEmitter, Output, Input, SimpleChanges } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input, SimpleChanges, OnChanges, DoCheck } from '@angular/core';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { faPause } from '@fortawesome/free-solid-svg-icons';
 import { faUndoAlt } from '@fortawesome/free-solid-svg-icons';
 import { faRedoAlt } from '@fortawesome/free-solid-svg-icons';
+import { TrackService } from '../_services/track.service';
 
 @Component({
   selector: 'app-bottomPlayer',
   templateUrl: './bottomPlayer.component.html',
   styleUrls: ['./bottomPlayer.component.css']
 })
-export class BottomPlayerComponent implements OnInit {
+export class BottomPlayerComponent implements OnInit{
   faCoffee = faCoffee;
   faPlay = faPlay;
   faPause = faPause;
   faUndoAlt = faUndoAlt;
   faRedoAlt = faRedoAlt;
-  @Input() activeTrackFromApp: any;
-  constructor() { }
+  constructor(private trackService: TrackService) { }
 
   ngOnInit() {
     this.addListeners();
+    this.subscribeToTrackUpdate();
   }
 
-  ngOnChanges(changes: SimpleChanges) {
+  subscribeToTrackUpdate() {
     const audio = document.getElementById('player_a') as HTMLAudioElement;
     const performerNameSpan = document.getElementById('performerNameSpan');
     const trackNameSpan = document.getElementById('trackNameSpan');
-    if (this.activeTrackFromApp !== undefined) {
-      audio.src = this.activeTrackFromApp.url;
-      performerNameSpan.textContent = this.activeTrackFromApp.performerName;
-      trackNameSpan.textContent = this.activeTrackFromApp.trackName;
-    }
+    this.trackService.activeTrackUpdated.subscribe(newActiveTrack => {
+      if (newActiveTrack !== undefined) {
+        audio.src = newActiveTrack.url;
+        performerNameSpan.textContent = newActiveTrack.performerName;
+        trackNameSpan.textContent = newActiveTrack.trackName;
+      }
+    });
   }
 
   addListeners() {

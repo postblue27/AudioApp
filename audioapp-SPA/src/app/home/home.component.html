@@ -1,13 +1,12 @@
 <div id="homeDiv">
   
-  <app-nav (loginModeEmitter)="enableLoginMode($event)"></app-nav>
-  <app-leftBar></app-leftBar>
-  <app-rightBar></app-rightBar>
-  <app-bottomPlayer [activeTrackFromApp]="activeTrack"></app-bottomPlayer>
-  <app-bottomMobileNav></app-bottomMobileNav>
-  <app-loginForm *ngIf="loginMode" (loginModeEmitter)="enableLoginMode($event)"></app-loginForm>
+  
+  
+ 
+  
+  
 
-  <div class="homeDivInside">
+  <div class="contentDiv">
 
     <!-- <div class="container mt-5">
       <div *ngIf="!registerMode" style="text-align: center">
@@ -28,7 +27,7 @@
       </div>
     </div> -->
 
-    <div *ngIf="!loginMode" class="text-center mt-3">
+    <div class="text-center mt-3">
       <table class="trackTable">
         <tr>
           <td></td>

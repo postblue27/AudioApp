@@ -9,14 +9,19 @@ import { AuthService } from './_services/auth.service';
 })
 export class AppComponent implements OnInit {
   title = 'audioapp-SPA';
+  loginMode: boolean = false;
 
-  constructor(private authService: AuthService) {}
+  constructor(public authService: AuthService) {}
 
   ngOnInit() {
     const token = localStorage.getItem('token');
     if (token) {
       this.authService.decodedToken = this.authService.jwtHelper.decodeToken(token);
     }
+  }
+
+  enableLoginMode(loginMode: boolean) {
+    this.loginMode = loginMode;
   }
   
 }

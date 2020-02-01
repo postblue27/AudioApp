@@ -20,6 +20,7 @@ import { ErrorInterceptor, ErrorInterceptorProvider } from './_services/error.in
 import { LibraryComponent } from './library/library.component';
 import { ProfileComponent } from './profile/profile.component';
 import { appRoutes } from './routes';
+import { TrackService } from './_services/track.service';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { appRoutes } from './routes';
    ],
    providers: [
       AuthService,
-      ErrorInterceptorProvider
+      ErrorInterceptorProvider,
+      TrackService
    ],
    bootstrap: [
       AppComponent

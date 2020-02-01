@@ -13,7 +13,6 @@ export class LoginFormComponent implements OnInit {
 
   model: any = {};
   registerMode: boolean = false;
-  @Output() loginModeEmitter = new EventEmitter();
   constructor(private authService: AuthService, private alertify: AlertifyService) { }
 
   ngOnInit() {
@@ -22,18 +21,18 @@ export class LoginFormComponent implements OnInit {
 
   login() {
     this.authService.login(this.model).subscribe(next => {
-      this.loginModeEmitter.emit(false);
+      this.authService.disableLoginMode();
       console.log('logged successfully');
       this.alertify.success('logged successfully');
     }, error => {
-     this.loginModeEmitter.emit(true);
+     this.authService.enableLoginMode();
      console.log('Failed to login');
      this.alertify.error(error);
     });
   }
 
   cancelLoginMode() {
-    this.loginModeEmitter.emit(false);
+    this.authService.disableLoginMode();
   }
 
   register() {
