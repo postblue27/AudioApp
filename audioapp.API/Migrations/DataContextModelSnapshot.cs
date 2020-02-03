@@ -22,6 +22,9 @@ namespace audioapp.API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<DateTime>("DateAdded")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("PerformerName")
                         .HasColumnType("TEXT");
 
@@ -34,7 +37,12 @@ namespace audioapp.API.Migrations
                     b.Property<string>("Url")
                         .HasColumnType("TEXT");
 
+                    b.Property<int?>("UserId")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("TrackId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Tracks");
                 });
@@ -57,6 +65,13 @@ namespace audioapp.API.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("audioapp.API.Models.Track", b =>
+                {
+                    b.HasOne("audioapp.API.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
                 });
 #pragma warning restore 612, 618
         }
