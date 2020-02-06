@@ -37,6 +37,9 @@ namespace audioapp.API
         {
             services.AddDbContext<DataContext>(x => x.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers().AddNewtonsoftJson();
+            // services.AddControllers().AddNewtonsoftJson(opt => {
+            //     opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            // });
             services.AddCors();
             services.AddAutoMapper(typeof(AudioRepository).Assembly);
             services.AddScoped<IAudioRepository, AudioRepository>();
