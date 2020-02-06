@@ -9,7 +9,7 @@ using audioapp.API.Data;
 namespace audioapp.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200205103936_initial")]
+    [Migration("20200206024651_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -72,7 +72,7 @@ namespace audioapp.API.Migrations
             modelBuilder.Entity("audioapp.API.Models.Track", b =>
                 {
                     b.HasOne("audioapp.API.Models.User", "User")
-                        .WithMany()
+                        .WithMany("Tracks")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

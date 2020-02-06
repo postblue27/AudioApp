@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace audioapp.API.Models
 {
     public class User
@@ -6,5 +8,6 @@ namespace audioapp.API.Models
         public string UserName { get; set; }
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }
+        public ICollection<Track> Tracks { get; set; }
     }
 }

@@ -36,11 +36,12 @@ namespace audioapp.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<DataContext>(x => x.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson();
             services.AddCors();
             services.AddAutoMapper(typeof(AudioRepository).Assembly);
             services.AddScoped<IAudioRepository, AudioRepository>();
             services.AddScoped<IAuthRepository, AuthRepository>();
+            services.AddScoped<IAppRepository, AppRepository>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options => {
                     options.TokenValidationParameters = new TokenValidationParameters

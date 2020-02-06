@@ -70,7 +70,7 @@ namespace audioapp.API.Migrations
             modelBuilder.Entity("audioapp.API.Models.Track", b =>
                 {
                     b.HasOne("audioapp.API.Models.User", "User")
-                        .WithMany()
+                        .WithMany("Tracks")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
