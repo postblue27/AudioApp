@@ -9,7 +9,7 @@ using audioapp.API.Data;
 namespace audioapp.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200203043558_initial")]
+    [Migration("20200205103936_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -39,7 +39,7 @@ namespace audioapp.API.Migrations
                     b.Property<string>("Url")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("UserId")
+                    b.Property<int>("UserId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("TrackId");
@@ -73,7 +73,9 @@ namespace audioapp.API.Migrations
                 {
                     b.HasOne("audioapp.API.Models.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
