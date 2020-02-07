@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 
@@ -24,9 +25,9 @@ namespace audioapp.API.Controllers
         private readonly IMapper _mapper;
         private readonly IOptions<CloudinarySettings> _cloudinaryConfig;
         private Cloudinary _cloudinary;
-        private readonly IAudioRepository _repo;
+        private readonly IAppRepository _repo;
 
-        public AudioController(DataContext conetxt, IAudioRepository repo, IMapper mapper,
+        public AudioController(DataContext conetxt, IAppRepository repo, IMapper mapper,
         IOptions<CloudinarySettings> cloudinaryConfig)
         {
             _repo = repo;
@@ -62,8 +63,14 @@ namespace audioapp.API.Controllers
         }
         [Authorize]
         [HttpPost]
-        public IActionResult AddTrack([FromForm]TrackForCreationDto trackForCreationDto)
+        [Route("{userId}")]
+        public async Task<IActionResult> AddTrackForUserAsync(int userId, [FromForm]TrackForCreationDto trackForCreationDto)
         {
+            if(userId != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))
+                return Unauthorized();
+
+            var userFromRepo = await _repo.GetUser(userId);
+
             var file = trackForCreationDto.File;    
 
             var uploadResult = new VideoUploadResult();
@@ -86,12 +93,16 @@ namespace audioapp.API.Controllers
 
             var track = _mapper.Map<Track>(trackForCreationDto);
 
-            _context.Tracks.Add(track);
+            //_context.Tracks.Add(track);
+            //_repo.Add(track);
+            userFromRepo.Tracks.Add(track);
 
             var trackForReturn = _mapper.Map<TrackForReturnDto>(track);
 
-            _context.SaveChanges();
-            return CreatedAtRoute("GetTrack", new {id = track.TrackId}, trackForReturn);
+            //_context.SaveChanges();
+            if (await _repo.SaveAll()){
+                return CreatedAtRoute("GetTrack", new {id = track.TrackId}, trackForReturn);
+            }
 
             return BadRequest("ff");
         }  

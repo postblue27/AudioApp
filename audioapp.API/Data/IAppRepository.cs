@@ -11,5 +11,7 @@ namespace audioapp.API.Data
         Task<bool> SaveAll(); 
         Task<IEnumerable<User>> GetUsers();
         Task<User> GetUser(int id);
+        Task<Track> GetTrack(int id);
+        Task<List<Track>> GetTracks();
     }
 }

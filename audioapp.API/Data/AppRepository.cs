@@ -37,6 +37,20 @@ namespace audioapp.API.Data
             return users;
         }
 
+        public async Task<Track> GetTrack(int id)
+        {
+            var track = await _context.Tracks.FirstOrDefaultAsync(t => t.TrackId == id);
+
+            return track;
+        }
+
+        public async Task<List<Track>> GetTracks()
+        {
+            var tracksList = await _context.Tracks.ToListAsync();
+
+            return tracksList;
+        }
+
         public async Task<bool> SaveAll()
         {
             return await _context.SaveChangesAsync() > 0; // will return true if there is more than 0 changes
