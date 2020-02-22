@@ -40,7 +40,7 @@
           <td><a (click)="modifyHref(track.url, $event, track.performerName, track.trackName)"><fa-icon [icon]="faArrowAltCircleDown" (mouseover)="downloadIconMouseOver($event)" class="fa-lg downloadIcon"></fa-icon></a></td>
           <td><span>{{track.trackName}}</span></td>
           <td><span>{{track.performerName}}</span></td>
-          <td class="trackDateAdded">yyyy-dd-mm</td>
+          <td class="trackDateAdded">{{track.dateAdded}}</td>
         </tr>
       </table>
     </div>

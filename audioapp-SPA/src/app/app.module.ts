@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import {BsDropdownModule} from 'ngx-bootstrap';
 import { RouterModule } from '@angular/router';
+import { FileUploadModule } from 'ng2-file-upload';
+
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -21,6 +23,7 @@ import { LibraryComponent } from './library/library.component';
 import { ProfileComponent } from './profile/profile.component';
 import { appRoutes } from './routes';
 import { TrackService } from './_services/track.service';
+import { FileUploaderComponent } from './fileUploader/fileUploader.component';
 
 
 @NgModule({
@@ -35,12 +38,14 @@ import { TrackService } from './_services/track.service';
       BottomMobileNavComponent,
       LoginFormComponent,
       LibraryComponent,
-      ProfileComponent
+      ProfileComponent,
+      FileUploaderComponent
    ],
    imports: [
       BrowserModule,
       HttpClientModule,
       FormsModule,
+      FileUploadModule,
       FontAwesomeModule,
       BsDropdownModule.forRoot(),
       RouterModule.forRoot(appRoutes)
