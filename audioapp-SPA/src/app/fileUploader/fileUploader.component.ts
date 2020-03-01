@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FileUploader } from 'ng2-file-upload';
+import { FileUploader, FileItem } from 'ng2-file-upload';
 import { environment } from 'src/environments/environment';
+import { AuthService } from '../_services/auth.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-fileUploader',
@@ -12,8 +14,10 @@ export class FileUploaderComponent implements OnInit {
   uploader: FileUploader;
   hasBaseDropZoneOver: boolean;
   baseUrl = environment.apiUrl;
+  model: any;
+  globalFileIndex = -1;
 
-  constructor() { }
+  constructor( private authService: AuthService) { }
 
   ngOnInit() {
     this.initializeUploader();
@@ -25,14 +29,32 @@ export class FileUploaderComponent implements OnInit {
  
   initializeUploader() {
     this.uploader = new FileUploader({
-      url: this.baseUrl + 'library',
+      url: this.baseUrl + 'audio/' + this.authService.decodedToken.nameid,
       authToken: 'Bearer ' + localStorage.getItem('token'),
       isHTML5: true,
       allowedFileType: ['audio'],
-      removeAfterUpload: true,
+      removeAfterUpload: false,
       autoUpload: false,
       maxFileSize: 30 * 1024 * 1024
     });
-  }
+    
+    this.uploader.onAfterAddingFile = (file) => { file.withCredentials = false; };
 
+    // this.uploader.onCompleteItem = (fileItem: any) => {
+    //   console.log('completed');
+    // };
+
+    this.uploader.onBuildItemForm = (fileItem: any, form: any) => {
+      this.globalFileIndex++;
+      const i = this.uploader.queue.indexOf(fileItem);
+      console.log('index: ' + i);
+      const curTrackName = document.getElementById('trackName-' + i) as HTMLInputElement;
+      const curPerformerName = document.getElementById('trackPerformer-' + i) as HTMLInputElement;
+      form.append('TrackName', curTrackName.value);
+      form.append('PerformerName', curPerformerName.value);
+      // console.log('queue length: ' + this.uploader.queue.length);
+      // console.log('trackName: ' + curTrackName.value);
+      // console.log('fileItem.index: ' + fileItem.index);
+    };
+  }
 }
