@@ -3,6 +3,10 @@ import { FileUploader, FileItem } from 'ng2-file-upload';
 import { environment } from 'src/environments/environment';
 import { AuthService } from '../_services/auth.service';
 import { NgForm } from '@angular/forms';
+import { faUpload } from '@fortawesome/free-solid-svg-icons';
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'
+import { faBan } from '@fortawesome/free-solid-svg-icons'
+import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 
 @Component({
   selector: 'app-fileUploader',
@@ -16,6 +20,10 @@ export class FileUploaderComponent implements OnInit {
   baseUrl = environment.apiUrl;
   model: any;
   globalFileIndex = -1;
+  faUpload = faUpload;
+  faCheckCircle = faCheckCircle;
+  faBan = faBan;
+  faTimesCircle = faTimesCircle;
 
   constructor( private authService: AuthService) { }
 
@@ -40,9 +48,9 @@ export class FileUploaderComponent implements OnInit {
     
     this.uploader.onAfterAddingFile = (file) => { file.withCredentials = false; };
 
-    // this.uploader.onCompleteItem = (fileItem: any) => {
-    //   console.log('completed');
-    // };
+      // this.uploader.onCompleteItem = (fileItem: any) => {
+      //   console.log('completed');
+      // };
 
     this.uploader.onBuildItemForm = (fileItem: any, form: any) => {
       this.globalFileIndex++;

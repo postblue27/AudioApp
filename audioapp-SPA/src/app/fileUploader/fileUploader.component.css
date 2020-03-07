@@ -1,0 +1,29 @@
+.uploaderDiv{
+    width: 100%;
+    padding: 10px;
+    color: white;
+}
+.uploaderDropZone{
+    width: 100%;
+    height: 200px;
+    color: black;
+    background: rgb(210,210,210);
+    border: 6px dashed rgb(130, 130, 130);
+}
+.uploaderDropZone span{
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.nv-file-over{
+    animation-name: example;
+    animation-duration: 1s;
+    background:white;
+    border: 6px dashed rgb(180, 0, 255);
+}
+@keyframes example {
+    from {background: rgb(210,210,210);
+        border: 6px dashed rgb(130, 130, 130);}
+    to {background:white;
+        border: 6px dashed rgb(180, 0, 255);}
+  }

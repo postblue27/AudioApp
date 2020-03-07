@@ -1,15 +1,17 @@
-<div class="row">
+<div class="uploaderDiv">
  
-  <div class="col-md-3">
-
-      <h3>Select files</h3>
+  <div class="">
 
       <div ng2FileDrop
            [ngClass]="{'nv-file-over': hasBaseDropZoneOver}"
            (fileOver)="fileOverBase($event)"
            [uploader]="uploader"
-           class="well my-drop-zone">
-          Base drop zone
+           class="card mb-3 my-drop-zone uploaderDropZone">
+           
+          <span><fa-icon [icon]="faUpload" class="fa-lg"></fa-icon>
+          <br>Drop files here
+          <br>--or--
+          <br>click te select</span>
       </div>
 
       Multiple
@@ -19,18 +21,16 @@
       <input type="file" ng2FileSelect [uploader]="uploader" />
   </div>
 
-  <div class="col-md-9" style="margin-bottom: 40px">
+  <div class="" style="margin-bottom: 40px">
 
       <h3>Upload queue</h3>
       <p>Queue length: {{ uploader?.queue?.length }}</p>
 
-      <table class="table">
+      <table class="table text-white">
           <thead>
           <tr>
               <th width="25%">Track Name</th>
               <th width="25%">Performer Name</th>
-              <th>Size</th>
-              <th>Progress</th>
               <th>Status</th>
               <th>Actions</th>
           </tr>
@@ -44,16 +44,10 @@
                 <input name="performerName" required class="performerNameInput" id="{{'trackPerformer-' + i}}">
               </td>
               <!-- <td><strong>{{ item?.file?.name }}</strong></td> -->
-              <td *ngIf="uploader.options.isHTML5" nowrap>{{ item?.file?.size/1024/1024 | number:'.2' }} MB</td>
-              <td *ngIf="uploader.options.isHTML5">
-                  <div class="progress" style="margin-bottom: 0;">
-                      <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': item.progress + '%' }"></div>
-                  </div>
-              </td>
               <td class="text-center">
-                  <span *ngIf="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
-                  <span *ngIf="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
-                  <span *ngIf="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
+                  <span *ngIf="item.isSuccess"><fa-icon [icon]="faCheckCircle"></fa-icon></span>
+                  <span *ngIf="item.isCancel"><fa-icon [icon]="faBan"></fa-icon></span>
+                  <span *ngIf="item.isError"><fa-icon [icon]="faTimesCircle"></fa-icon></span>
               </td>
               <td nowrap>
                   <button type="button" class="btn btn-success btn-xs"
