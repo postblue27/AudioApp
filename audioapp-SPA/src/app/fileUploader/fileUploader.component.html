@@ -2,29 +2,28 @@
  
   <div class="">
 
-      <div ng2FileDrop
+      <div ng2FileDrop 
            [ngClass]="{'nv-file-over': hasBaseDropZoneOver}"
            (fileOver)="fileOverBase($event)"
            [uploader]="uploader"
            class="card mb-3 my-drop-zone uploaderDropZone">
-           
-          <span><fa-icon [icon]="faUpload" class="fa-lg"></fa-icon>
-          <br>Drop files here
-          <br>--or--
-          <br>click te select</span>
+        
+            <label>
+                <input type="file" ng2FileSelect [uploader]="uploader" multiple  />
+                <span><fa-icon [icon]="faUpload" class="fa-lg"></fa-icon>
+                <br>DROP FILES HERE
+                <br>--or--
+                <br>CLICK TO SELECT</span>
+            </label>
+        
       </div>
 
-      Multiple
-      <input type="file" ng2FileSelect [uploader]="uploader" multiple  /><br/>
-
-      Single
-      <input type="file" ng2FileSelect [uploader]="uploader" />
   </div>
 
   <div class="" style="margin-bottom: 40px">
 
-      <h3>Upload queue</h3>
-      <p>Queue length: {{ uploader?.queue?.length }}</p>
+      <!-- <h3>Upload queue</h3>
+      <p>Queue length: {{ uploader?.queue?.length }}</p> -->
 
       <table class="table text-white">
           <thead>

@@ -6,24 +6,70 @@
 .uploaderDropZone{
     width: 100%;
     height: 200px;
-    color: black;
-    background: rgb(210,210,210);
+    color: rgb(210,210,210);
+    font-size: 20px;
+    font-weight: 500;
+    background: rgb(45,45,45);
     border: 6px dashed rgb(130, 130, 130);
+    cursor: pointer;
+    user-select: none;
 }
-.uploaderDropZone span{
-    text-align: center;
-    margin-top: auto;
-    margin-bottom: auto;
+.uploaderDropZone:hover{
+    animation-name: cursorHover;
+    animation-duration: 0.5s;
+    color: white;
+    border-color: white;
+    background: rgb(60,60,60);
 }
-.nv-file-over{
-    animation-name: example;
-    animation-duration: 1s;
-    background:white;
-    border: 6px dashed rgb(180, 0, 255);
-}
-@keyframes example {
-    from {background: rgb(210,210,210);
-        border: 6px dashed rgb(130, 130, 130);}
-    to {background:white;
-        border: 6px dashed rgb(180, 0, 255);}
+@keyframes cursorHover {
+    from {
+        color: rgb(210,210,210);
+        background: rgb(45,45,45);
+        border-color:rgb(130, 130, 130);
+    }
+    to {color: white;
+        border-color: white;
+        background: rgb(60,60,60);}
   }
+
+.nv-file-over{
+    animation-name: fileHover;
+    animation-duration: 0.5s;
+    /* background:rgb(60,60,60); */
+    background:rgb(230,230,230);
+    border-color: rgb(130, 0, 190);
+    /* color: white; */
+    color: rgb(130, 0, 190);
+}
+@keyframes fileHover {
+    from {background: rgb(45,45,45);
+        border-color:rgb(130, 130, 130);
+        color: rgb(210,210,210);}
+    to {
+        /* background:rgb(60,60,60); */
+        background:rgb(230,230,230);
+        border-color: rgb(130, 0, 190);
+        /* color: white; */
+    color: rgb(130, 0, 190);}
+  }
+
+.uploaderDropZone input[type=file]{
+    display: none;
+}
+
+.uploaderDropZone label{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    cursor: pointer;
+    margin-bottom: 0;
+}
+
+.uploaderDropZone label span{
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
