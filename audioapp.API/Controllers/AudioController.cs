@@ -95,7 +95,7 @@ namespace audioapp.API.Controllers
 
             //_context.Tracks.Add(track);
             //_repo.Add(track);
-            userFromRepo.Tracks.Add(track);
+            userFromRepo.UploadedTracks.Add(track);
 
             var trackForReturn = _mapper.Map<TrackForReturnDto>(track);
 

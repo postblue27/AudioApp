@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace audioapp.API.Models
 {
@@ -12,5 +13,6 @@ namespace audioapp.API.Models
         public DateTime DateAdded { get; set; }
         public int UserId { get; set; }
         public User User { get; set; }
+        public ICollection<PlaylistTrack> PlaylistTracks { get; set; }
     }
 }

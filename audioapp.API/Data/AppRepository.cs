@@ -25,14 +25,14 @@ namespace audioapp.API.Data
 
         public async Task<User> GetUser(int id)
         {
-            var user = await _context.Users.Include(t => t.Tracks).FirstOrDefaultAsync(u => u.Id == id);
+            var user = await _context.Users.Include(t => t.UploadedTracks).FirstOrDefaultAsync(u => u.Id == id);
 
             return user;
         }
 
         public async Task<IEnumerable<User>> GetUsers()
         {
-            var users = await _context.Users.Include(t => t.Tracks).ToListAsync();
+            var users = await _context.Users.Include(t => t.UploadedTracks).ToListAsync();
 
             return users;
         }
