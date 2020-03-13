@@ -13,5 +13,6 @@ namespace audioapp.API.Data
         Task<User> GetUser(int id);
         Task<Track> GetTrack(int id);
         Task<List<Track>> GetTracks();
+        Task<List<Track>> GetTracksOfUser(int id);
     }
 }

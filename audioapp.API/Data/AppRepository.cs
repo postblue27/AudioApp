@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using audioapp.API.Models;
 using Microsoft.EntityFrameworkCore;
@@ -54,6 +55,11 @@ namespace audioapp.API.Data
         public async Task<bool> SaveAll()
         {
             return await _context.SaveChangesAsync() > 0; // will return true if there is more than 0 changes
+        }
+        public async Task<List<Track>> GetTracksOfUser(int id)
+        {
+            var tracksOfUser = await _context.Tracks.Where(t => t.UserId == id).ToListAsync();
+            return tracksOfUser;
         }
     }
 }

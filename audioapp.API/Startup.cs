@@ -41,8 +41,7 @@ namespace audioapp.API
                 opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
             });
             services.AddCors();
-            services.AddAutoMapper(typeof(AudioRepository).Assembly);
-            services.AddScoped<IAudioRepository, AudioRepository>();
+            services.AddAutoMapper(typeof(AppRepository).Assembly);
             services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddScoped<IAppRepository, AppRepository>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

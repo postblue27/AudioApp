@@ -61,6 +61,13 @@ namespace audioapp.API.Controllers
 
             return Ok(tracks);
         }
+        [HttpGet]
+        [Route("user/{userId}")]
+        public async Task<IActionResult> GetTracksOfUser(int userId)
+        {
+            var tracksOfUser = await _repo.GetTracksOfUser(userId);
+            return Ok(tracksOfUser);
+        }
         [Authorize]
         [HttpPost]
         [Route("{userId}")]
