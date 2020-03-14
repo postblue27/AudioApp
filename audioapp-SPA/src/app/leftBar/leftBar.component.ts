@@ -4,6 +4,7 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faCompactDisc } from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { PlaylistService } from '../_services/playlist.service';
 
 @Component({
   selector: 'app-leftBar',
@@ -16,7 +17,7 @@ export class LeftBarComponent implements OnInit {
   faCompactDisc = faCompactDisc;
   faUser = faUser;
   faPlus = faPlus;
-  constructor() { }
+  constructor(public playlistService: PlaylistService) { }
 
   ngOnInit() {
   }

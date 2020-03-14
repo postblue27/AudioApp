@@ -4,9 +4,9 @@ import { environment } from 'src/environments/environment';
 import { AuthService } from '../_services/auth.service';
 import { NgForm } from '@angular/forms';
 import { faUpload } from '@fortawesome/free-solid-svg-icons';
-import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'
-import { faBan } from '@fortawesome/free-solid-svg-icons'
-import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import { faBan } from '@fortawesome/free-solid-svg-icons';
+import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-fileUploader',
@@ -34,7 +34,7 @@ export class FileUploaderComponent implements OnInit {
   fileOverBase(e: any): void {
     this.hasBaseDropZoneOver = e;
   }
- 
+
   initializeUploader() {
     this.uploader = new FileUploader({
       url: this.baseUrl + 'audio/' + this.authService.decodedToken.nameid,
@@ -45,7 +45,7 @@ export class FileUploaderComponent implements OnInit {
       autoUpload: false,
       maxFileSize: 30 * 1024 * 1024
     });
-    
+
     this.uploader.onAfterAddingFile = (file) => { file.withCredentials = false; };
 
       // this.uploader.onCompleteItem = (fileItem: any) => {

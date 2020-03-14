@@ -87,7 +87,7 @@
   </div>
 
   <div class="leftBarCreatePlaylistDiv">
-    <div class="leftBarCreatePlaylistDivInside">
+    <div class="leftBarCreatePlaylistDivInside" (click)="this.playlistService.enableCreationMode()">
       <fa-icon [icon]="faPlus" class="mr-2"></fa-icon>
       <span>New Playlist</span>
     </div>

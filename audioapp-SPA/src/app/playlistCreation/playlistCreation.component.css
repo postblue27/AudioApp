@@ -1,0 +1,38 @@
+.loginFormMainDiv{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.8);
+    z-index: 10;
+}
+
+.loginFormInside{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 400px;
+    height: 400px;
+    background-color: rgb(27,27,27);
+    border: 1px solid rgb(40,40,40);
+    overflow: auto;
+    user-select: none;
+}
+
+.closeIconDiv{
+    width: 100%;
+    text-align: right;
+    font-size: 26px;
+    padding-right: 12px;
+    color: white;
+    cursor: pointer;
+}
+
+.closeIconDiv:hover{
+    color: rgb(180, 0, 255);
+}

@@ -1,0 +1,15 @@
+<div class="contentDiv"></div>
+<div class="loginFormMainDiv">
+  <div class="loginFormInside">
+    <div class="closeIconDiv" (click)="this.playlistService.disableCreationMode()">
+      <fa-icon [icon]="faTimes"></fa-icon>
+    </div>
+    <form #playlistCreationForm="ngForm" class="loginForm" (ngSubmit)="createPlaylist()">
+      <input class="loginFormInput" type="text" name="PlaylistName" 
+        placeholder="Playlist Name" required [(ngModel)]="model.PlaylistName">
+      <input class="loginFormInput" type="text" name="PlaylistDesc" 
+        placeholder="Playlist Description" required [(ngModel)]="model.PlaylistDesc">
+      <button [disabled]="!playlistCreationForm.valid" class="formSubmitButton" type="submit">Create</button>
+    </form>
+  </div>
+</div>

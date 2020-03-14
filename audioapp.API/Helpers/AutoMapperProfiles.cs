@@ -11,6 +11,7 @@ namespace audioapp.API.Helpers
             CreateMap<Track, TrackForReturnDto>();
             CreateMap<TrackForCreationDto, Track>();
             CreateMap<User, UserForListDto>();
+            CreateMap<PlaylistForCreationDto, Playlist>();
         }
     }
 }

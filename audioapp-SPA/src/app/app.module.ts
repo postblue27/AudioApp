@@ -24,6 +24,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { appRoutes } from './routes';
 import { TrackService } from './_services/track.service';
 import { FileUploaderComponent } from './fileUploader/fileUploader.component';
+import { PlaylistCreationComponent } from './playlistCreation/playlistCreation.component';
+import { PlaylistService } from './_services/playlist.service';
 
 
 @NgModule({
@@ -39,7 +41,8 @@ import { FileUploaderComponent } from './fileUploader/fileUploader.component';
       LoginFormComponent,
       LibraryComponent,
       ProfileComponent,
-      FileUploaderComponent
+      FileUploaderComponent,
+      PlaylistCreationComponent
    ],
    imports: [
       BrowserModule,
@@ -53,7 +56,8 @@ import { FileUploaderComponent } from './fileUploader/fileUploader.component';
    providers: [
       AuthService,
       ErrorInterceptorProvider,
-      TrackService
+      TrackService,
+      PlaylistService
    ],
    bootstrap: [
       AppComponent
