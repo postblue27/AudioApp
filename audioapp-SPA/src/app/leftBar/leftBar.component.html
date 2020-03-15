@@ -49,39 +49,14 @@
       <div class="playlistDiv">
         <span class="playlistSpan">Classic rock</span>
       </div>
-
-      <div class="infospanDiv mt-5">
-        <span class="info-span">YOUR PLAYLISTS</span>
-      </div>
-      <div class="playlistDiv">
-        <span class="playlistSpan">For mom</span>
-      </div>
-      <div class="playlistDiv">
-        <span class="playlistSpan">inside your car</span>
-      </div>
-      <div class="playlistDiv">
-        <span class="playlistSpan">.badmood</span>
-      </div>
-      <div class="playlistDiv">
-        <span class="playlistSpan">Going crazy</span>
-      </div>
-      <div class="playlistDiv">
-        <span class="playlistSpan">Classic rock</span>
-      </div>
-      <div class="playlistDiv">
-        <span class="playlistSpan">For mom</span>
-      </div>
-      <div class="playlistDiv">
-        <span class="playlistSpan">inside your car</span>
-      </div>
-      <div class="playlistDiv">
-        <span class="playlistSpan">.badmood</span>
-      </div>
-      <div class="playlistDiv">
-        <span class="playlistSpan">Going crazy</span>
-      </div>
-      <div class="playlistDiv">
-        <span class="playlistSpan">Classic rock</span>
+      
+      <div class="userPlaylistsDiv" *ngIf="loggedIn()">
+        <div class="infospanDiv mt-5">
+          <span class="info-span">YOUR PLAYLISTS</span>
+        </div>
+        <div class="playlistDiv" *ngFor="let playlist of playlists">
+          <span class="playlistSpan">{{playlist.playlistName}}</span>
+        </div>
       </div>
     </div>
   </div>
