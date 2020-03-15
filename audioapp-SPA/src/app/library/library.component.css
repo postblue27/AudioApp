@@ -1,0 +1,12 @@
+.libraryDiv{
+    padding: 10px;
+}
+.mainTitle{
+    /* padding: 10px; */
+    font-size: 50px;
+    font-weight: 300;
+    color: white;
+}
+.libraryTabset{
+    margin-top: 15px;
+}

@@ -23,7 +23,6 @@ export class LeftBarComponent implements OnInit {
 
   ngOnInit() {
       this.playlistService.userPlaylistsUIupdate.subscribe(() => {
-        console.log('update');
         this.getPlaylists();
       });
       if (this.authService.loggedIn()) {
@@ -33,7 +32,6 @@ export class LeftBarComponent implements OnInit {
   getPlaylists() {
     this.playlistService.getPlaylists().subscribe(response => {
       this.playlists = response;
-      console.log(this.playlists);
     }, error => {
       console.log(error);
     });

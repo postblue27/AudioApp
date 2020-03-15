@@ -66,3 +66,30 @@ html, body{
         bottom:110px;
     }
 }
+
+
+.nav-link{
+    color: rgb(210,210,210);
+    font-size: 18px;
+}
+
+.nav-tabs > li.open, .nav-tabs > li:hover {
+    border: none;
+    border-bottom: 4px solid rgb(130, 0, 190);
+}
+.nav-tabs > li.open > a, .nav-tabs > li:hover > a {
+    border: none;
+    color: white;
+}
+
+.nav-tabs > li:active > a {
+    background-color: rgb(180, 0, 255);
+}
+
+.nav-tabs > li.active {
+    border-bottom: 4px solid rgb(180, 0, 255);
+    position: relative;
+  }
+  .nav-tabs > li.active > a {
+    border: none;
+  }

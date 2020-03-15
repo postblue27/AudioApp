@@ -31,6 +31,7 @@
               <th width="25%">Track Name</th>
               <th width="25%">Performer Name</th>
               <th>Status</th>
+              <th>File Name</th>
               <th>Actions</th>
           </tr>
           </thead>
@@ -47,6 +48,9 @@
                   <span *ngIf="item.isSuccess"><fa-icon [icon]="faCheckCircle"></fa-icon></span>
                   <span *ngIf="item.isCancel"><fa-icon [icon]="faBan"></fa-icon></span>
                   <span *ngIf="item.isError"><fa-icon [icon]="faTimesCircle"></fa-icon></span>
+              </td>
+              <td class="text-center" style="font-size: 12px;">
+                  <span>{{item.file.name}}</span>
               </td>
               <td nowrap>
                   <button type="button" class="btn btn-success btn-xs"
