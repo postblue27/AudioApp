@@ -4,6 +4,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {BsDropdownModule} from 'ngx-bootstrap';
 import { RouterModule } from '@angular/router';
 import { FileUploadModule } from 'ng2-file-upload';
+import { JwtModule } from '@auth0/angular-jwt';
 
 
 import { AppComponent } from './app.component';
@@ -26,6 +27,11 @@ import { TrackService } from './_services/track.service';
 import { FileUploaderComponent } from './fileUploader/fileUploader.component';
 import { PlaylistCreationComponent } from './playlistCreation/playlistCreation.component';
 import { PlaylistService } from './_services/playlist.service';
+
+
+export function tokenGetter() {
+   return localStorage.getItem('token');
+}
 
 
 @NgModule({
@@ -51,7 +57,14 @@ import { PlaylistService } from './_services/playlist.service';
       FileUploadModule,
       FontAwesomeModule,
       BsDropdownModule.forRoot(),
-      RouterModule.forRoot(appRoutes)
+      RouterModule.forRoot(appRoutes),
+      JwtModule.forRoot({
+         config : {
+            tokenGetter: tokenGetter,
+            whitelistedDomains: ['localhost:5000'],
+            blacklistedRoutes: ['localhost:5000/api/auth']
+         }
+      })
    ],
    providers: [
       AuthService,

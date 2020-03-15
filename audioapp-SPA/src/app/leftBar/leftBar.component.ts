@@ -22,14 +22,18 @@ export class LeftBarComponent implements OnInit {
   constructor(public playlistService: PlaylistService, private authService: AuthService) { }
 
   ngOnInit() {
-    this.getPlaylists();
-    this.playlistService.newPlaylistCreated.subscribe(() => {
-      this.getPlaylists();
-    });
+      this.playlistService.userPlaylistsUIupdate.subscribe(() => {
+        console.log('update');
+        this.getPlaylists();
+      });
+      if (this.authService.loggedIn()) {
+        this.getPlaylists();
+      }
   }
   getPlaylists() {
     this.playlistService.getPlaylists().subscribe(response => {
       this.playlists = response;
+      console.log(this.playlists);
     }, error => {
       console.log(error);
     });

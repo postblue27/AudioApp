@@ -23,7 +23,7 @@ export class PlaylistCreationComponent implements OnInit {
   createPlaylist() {
     this.playlistService.createPlaylist(this.model).subscribe(() => {
       console.log('creation success');
-      this.playlistService.newPlaylistCreated.emit();
+      this.playlistService.userPlaylistsUIupdate.emit();
       this.playlistService.getPlaylists();
     }, error => {
       console.log(error);
