@@ -28,7 +28,6 @@ a{
     position: relative;
     font-weight: 500;
     user-select: none;
-    cursor: pointer;
 }
 
 .trackTable td {
@@ -44,13 +43,18 @@ a{
 }
 .trackTable tr td:nth-child(2) {
     padding-left: 20px;
-    width: 40%;
+    width: 25%;
 }
  .trackTable tr td:nth-child(3) {
     padding-left: 20px;
-    width: 30%;
+    width: 25%;
 } 
 .trackTable tr td:nth-child(4) {
+    padding-left: 20px;
+    width: 25%;
+}
+
+.trackTable tr td:nth-child(5) {
     padding-left: 20px;
 }
 
@@ -71,4 +75,10 @@ a{
         width: 45%;
         font-size: 14px;
     } 
+}
+
+@media screen and (max-width: 1000px) {
+    .trackUploaderName{
+        display: none;
+    }
 }

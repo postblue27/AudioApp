@@ -34,6 +34,7 @@
           <td>TITLE</td>
           <td>ARTIST</td>
           <td class="trackDateAdded">DATE</td>
+          <td class="trackUploaderName">UPLOADER</td>
         </tr>
         <tr *ngFor="let track of tracks" class="trackDiv" id={{track.publicId}} (click)="trackDivClick(track.publicId); changeActiveTrack(track);" 
             (mouseover)="trackDivMouseOver(track.publicId)" (mouseout)="trackDivMouseOut(track.publicId)">
@@ -41,6 +42,7 @@
           <td><span>{{track.trackName}}</span></td>
           <td><span>{{track.performerName}}</span></td>
           <td class="trackDateAdded">{{track.dateAdded}}</td>
+          <td class="trackUploaderName"><span>{{track.uploaderUserName}}</span></td>
         </tr>
       </table>
     </div>

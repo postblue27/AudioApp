@@ -40,12 +40,12 @@
 
 .leftBarUpperDiv tr a:hover td:first-child{
     color: rgb(180, 0, 255);
-    border-bottom: 3px solid rgb(180, 0, 255);
+    /* border-bottom: 3px solid rgb(180, 0, 255); */
 }
 
 .leftBarUpperDiv tr a:hover td:nth-child(2){
     color: white;
-    border-bottom: 3px solid rgb(180, 0, 255);
+    /* border-bottom: 3px solid rgb(180, 0, 255); */
 }
 
 .leftBarLowerDiv{
@@ -85,7 +85,7 @@
 
 .playlistDiv:hover{
     color: white;
-    border-bottom: 2px solid rgb(180, 0, 255);
+    /* border-bottom: 2px solid rgb(180, 0, 255); */
 }
 
 .playlistSpan{
@@ -150,6 +150,6 @@
         margin-top: 10px;
     }
     .leftBarLowerDiv{
-        top:180px;
+        top:140px;
     }
 }

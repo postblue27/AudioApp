@@ -10,5 +10,8 @@ namespace audioapp.API.Dtos
         public DateTime DateAdded { get; set; }
         public string Url { get; set; }
         public string PublicId { get; set; }
+        public int UserId { get; set; }
+        public string UploaderUserName { get; set; }
+        
     }
 }

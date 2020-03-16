@@ -27,6 +27,7 @@ import { TrackService } from './_services/track.service';
 import { FileUploaderComponent } from './fileUploader/fileUploader.component';
 import { PlaylistCreationComponent } from './playlistCreation/playlistCreation.component';
 import { PlaylistService } from './_services/playlist.service';
+import { LibraryPlaylistsComponent } from './libraryPlaylists/libraryPlaylists.component';
 
 
 export function tokenGetter() {
@@ -48,7 +49,8 @@ export function tokenGetter() {
       LibraryComponent,
       ProfileComponent,
       FileUploaderComponent,
-      PlaylistCreationComponent
+      PlaylistCreationComponent,
+      LibraryPlaylistsComponent
    ],
    imports: [
       BrowserModule,

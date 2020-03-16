@@ -37,10 +37,6 @@ export class LeftBarComponent implements OnInit {
     });
   }
   loggedIn() {
-    // if(this.authService.loggedIn()){
-    //   this.getPlaylists();
-    //   console.log('loggedin');
-    // }
     return this.authService.loggedIn();
   }
 }

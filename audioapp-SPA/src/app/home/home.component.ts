@@ -28,6 +28,7 @@ export class HomeComponent implements OnInit {
   getTracks() {
     this.http.get('http://localhost:5000/api/audio').subscribe(response => {
       this.tracks = response;
+      console.log(this.tracks);
     }, error => {
       console.log(error);
     });

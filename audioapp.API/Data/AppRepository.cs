@@ -47,8 +47,8 @@ namespace audioapp.API.Data
 
         public async Task<List<Track>> GetTracks()
         {
-            var tracksList = await _context.Tracks.ToListAsync();
-
+            var tracksList = await _context.Tracks.Include(t => t.User).ToListAsync();
+            
             return tracksList;
         }
 

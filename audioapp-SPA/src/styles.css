@@ -68,9 +68,17 @@ html, body{
 }
 
 
+.nav{
+    border-bottom: none !important;
+}
 .nav-link{
     color: rgb(210,210,210);
     font-size: 18px;
+}
+.nav-item{
+    width: 33.33%;
+    text-align: center;
+    border-bottom: 1px solid rgb(210,210,210);
 }
 
 .nav-tabs > li.open, .nav-tabs > li:hover {
@@ -82,14 +90,12 @@ html, body{
     color: white;
 }
 
-.nav-tabs > li:active > a {
-    background-color: rgb(180, 0, 255);
-}
-
 .nav-tabs > li.active {
     border-bottom: 4px solid rgb(180, 0, 255);
     position: relative;
   }
   .nav-tabs > li.active > a {
     border: none;
+    background: none !important;
+    color: white !important;
   }

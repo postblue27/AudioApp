@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -58,8 +59,14 @@ namespace audioapp.API.Controllers
         public async Task<IActionResult> GetTracks()
         {
             var tracks = await _repo.GetTracks();
-
-            return Ok(tracks);
+            List<TrackForReturnDto> tracksToReturn = new List<TrackForReturnDto>();
+            for (int i = 0; i < tracks.Count; i++)
+            {
+                tracksToReturn.Add(_mapper.Map<TrackForReturnDto>(tracks[i]));
+            }
+            
+            return Ok(tracksToReturn);
+            // return Ok(tracks);
         }
         [HttpGet]
         [Route("user/{userId}")]
