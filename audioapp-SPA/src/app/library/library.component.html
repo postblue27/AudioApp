@@ -3,12 +3,12 @@
         <span class="mainTitle">Library</span>
     
         <div class="libraryTabset">
-            <tabset calss="libraryTabsetInside">
+            <tabset calss="libraryTabsetInside" (select)="onTabChange($event)">
                 <tab heading="Playlists">
                     <app-libraryPlaylists></app-libraryPlaylists>
                 </tab>
                 <tab heading="Songs">
-
+                    <app-libraryTracks></app-libraryTracks>
                 </tab>
                 <tab heading="Upload">
                     <app-fileUploader></app-fileUploader>

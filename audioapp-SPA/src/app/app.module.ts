@@ -28,6 +28,7 @@ import { FileUploaderComponent } from './fileUploader/fileUploader.component';
 import { PlaylistCreationComponent } from './playlistCreation/playlistCreation.component';
 import { PlaylistService } from './_services/playlist.service';
 import { LibraryPlaylistsComponent } from './libraryPlaylists/libraryPlaylists.component';
+import { LibraryTracksComponent } from './libraryTracks/libraryTracks.component';
 
 
 export function tokenGetter() {
@@ -50,7 +51,8 @@ export function tokenGetter() {
       ProfileComponent,
       FileUploaderComponent,
       PlaylistCreationComponent,
-      LibraryPlaylistsComponent
+      LibraryPlaylistsComponent,
+      LibraryTracksComponent
    ],
    imports: [
       BrowserModule,

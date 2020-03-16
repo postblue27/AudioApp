@@ -14,4 +14,7 @@ export class LibraryComponent implements OnInit {
   ngOnInit() {
   }
 
+  onTabChange(e: any) {
+    console.log('tab changed');
+  }
 }

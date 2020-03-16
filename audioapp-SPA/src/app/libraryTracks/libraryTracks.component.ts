@@ -1,16 +1,15 @@
-import { Component, OnInit, Input, Output, EventEmitter, SimpleChanges } from '@angular/core';
-import { faArrowCircleDown } from '@fortawesome/free-solid-svg-icons';
+import { Component, OnInit } from '@angular/core';
 import { TrackService } from '../_services/track.service';
+import { faArrowCircleDown } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-libraryTracks',
+  templateUrl: './libraryTracks.component.html',
+  styleUrls: ['./libraryTracks.component.css']
 })
-export class HomeComponent implements OnInit {
+export class LibraryTracksComponent implements OnInit {
   tracks: any;
   faArrowAltCircleDown = faArrowCircleDown;
-
   constructor(public trackService: TrackService) { }
 
   ngOnInit() {
