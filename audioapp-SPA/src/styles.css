@@ -74,6 +74,7 @@ html, body{
 .nav-link{
     color: rgb(210,210,210);
     font-size: 18px;
+    border: none !important;
 }
 .nav-item{
     width: 33.33%;

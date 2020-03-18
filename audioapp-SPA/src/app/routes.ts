@@ -4,6 +4,9 @@ import { LibraryComponent } from './library/library.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthGuard } from './_guards/auth.guard';
 import { LoginFormComponent } from './loginForm/loginForm.component';
+import { LibraryPlaylistsComponent } from './libraryPlaylists/libraryPlaylists.component';
+import { LibraryTracksComponent } from './libraryTracks/libraryTracks.component';
+import { FileUploaderComponent } from './fileUploader/fileUploader.component';
 
 export const appRoutes: Routes = [
     {path: '', component: HomeComponent},
@@ -12,7 +15,13 @@ export const appRoutes: Routes = [
         runGuardsAndResolvers: 'always',
         canActivate: [AuthGuard],
         children: [
-            {path: 'library', component: LibraryComponent},
+            {path: 'library', component: LibraryComponent,
+                children:[
+                    {path: 'playlists', component: LibraryPlaylistsComponent},
+                    {path: 'songs', component: LibraryTracksComponent},
+                    {path: 'upload', component: FileUploaderComponent}
+                ]
+            },
             {path: 'profile', component: ProfileComponent},
         ]
     },

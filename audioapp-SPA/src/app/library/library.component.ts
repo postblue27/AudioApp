@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router, NavigationEnd, NavigationStart, Navigation } from '@angular/router';
+import { TabsetComponent, TabDirective } from 'ngx-bootstrap';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-library',
@@ -6,15 +9,37 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./library.component.css']
 })
 export class LibraryComponent implements OnInit {
-
-  
-
-  constructor() { }
+  @ViewChild('tabset', {static: true}) tabset: TabsetComponent;
+  constructor(private router: Router) { 
+    this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe(() => {
+      if (this.router.url === '/library/playlists') {
+        this.tabset.tabs[0].active = true;
+      }
+      if (this.router.url === '/library/songs') {
+        this.tabset.tabs[1].active = true;
+      }
+      if (this.router.url === '/library/upload') {
+        this.tabset.tabs[2].active = true;
+      }
+    });
+  }
 
   ngOnInit() {
   }
 
-  onTabChange(e: any) {
-    console.log('tab changed');
+  ngAfterViewInit(){
+    
+  }
+
+  onSelect(tab: string) {
+    if (tab === 'playlists') {
+      this.router.navigate(['library/playlists']);
+    }
+    if (tab === 'songs') {
+      this.router.navigate(['library/songs']);
+    }
+    if (tab === 'upload') {
+      this.router.navigate(['library/upload']);
+    }
   }
 }
