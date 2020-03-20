@@ -50,5 +50,13 @@ namespace audioapp.API.Controllers
             var playlistsOfUser =  await _repo.GetPlaylistsOfUser(userId);
             return Ok(playlistsOfUser);
         }
+        [Authorize]
+        [HttpGet]
+        [Route("exact/{playlistId}")]
+        public async Task<IActionResult> GetPlaylistOfUser(int playlistId)
+        {
+            var playlist = await _repo.GetPlaylist(playlistId);
+            return Ok(playlist);
+        }
     }
 }

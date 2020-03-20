@@ -7,6 +7,7 @@ import { LoginFormComponent } from './loginForm/loginForm.component';
 import { LibraryPlaylistsComponent } from './libraryPlaylists/libraryPlaylists.component';
 import { LibraryTracksComponent } from './libraryTracks/libraryTracks.component';
 import { FileUploaderComponent } from './fileUploader/fileUploader.component';
+import { PlaylistComponent } from './playlist/playlist.component';
 
 export const appRoutes: Routes = [
     {path: '', component: HomeComponent},

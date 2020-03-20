@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PlaylistService } from '../_services/playlist.service';
 import { AuthService } from '../_services/auth.service';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-libraryPlaylists',
@@ -12,7 +13,8 @@ export class LibraryPlaylistsComponent implements OnInit {
   playlists: any;
   faPlus = faPlus;
 
-  constructor(public playlistService: PlaylistService, private authService: AuthService) { }
+  constructor(public playlistService: PlaylistService, private authService: AuthService,
+    private router: Router) { }
 
   ngOnInit() {
     this.playlistService.userPlaylistsUIupdate.subscribe(() => {
@@ -31,8 +33,9 @@ export class LibraryPlaylistsComponent implements OnInit {
     });
   }
 
-  playlistDivClick(id: string) {
-    
+  playlistDivClick(playlistId: string) {
+    this.playlistService.currentPlaylistId = playlistId;
+    this.playlistService.enableDetailedViewMode(playlistId);
   }
 
 }

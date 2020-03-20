@@ -67,5 +67,12 @@ namespace audioapp.API.Data
             var playlistsOfUser = await _context.Playlists.Where(p => p.UserId == id).ToListAsync();
             return playlistsOfUser;
         }
+
+        public async Task<Playlist> GetPlaylist(int playlistId)
+        {
+            var playlist = await _context.Playlists.FirstOrDefaultAsync(
+                p => p.PlaylistId == playlistId);
+            return playlist;
+        }
     }
 }

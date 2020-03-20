@@ -81,7 +81,7 @@
 
 .leftBarCreatePlaylistDiv:hover{
     background-color: rgb(40,40,40);
-    border-style: dashed;
+    border-style: solid;
 }
 
 .leftBarCreatePlaylistDivInside{

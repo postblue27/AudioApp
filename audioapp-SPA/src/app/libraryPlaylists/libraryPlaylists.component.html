@@ -12,7 +12,8 @@
       <td>DESCRIPTION</td>
       <td class="playlistDateAdded">DATE</td>
     </tr>
-    <tr *ngFor="let playlist of playlists" class="playlistDiv" id={{playlist.playlistId}} (click)="playlistDivClick(playlist.playlistId);">
+    <tr *ngFor="let playlist of playlists" class="playlistDiv" id={{playlist.playlistId}}
+      (click)="playlistDivClick(playlist.playlistId);">
       <td><span>{{playlist.playlistName}}</span></td>
       <td><span>{{playlist.playlistDesc}}</span></td>
       <td class="playlistDateAdded">{{playlist.dateCreated}}</td>

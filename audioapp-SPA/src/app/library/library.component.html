@@ -5,7 +5,8 @@
         <div class="libraryTabset">
             <tabset #tabset calss="libraryTabsetInside">
                 <tab heading="Playlists" (select)="onSelect('playlists')">
-                    <app-libraryPlaylists></app-libraryPlaylists>
+                    <app-libraryPlaylists *ngIf="!this.playlistService.isDetailedViewModeEnabled()"></app-libraryPlaylists>
+                    <app-playlist *ngIf="this.playlistService.isDetailedViewModeEnabled()"></app-playlist>
                 </tab>
                 <tab heading="Songs" (select)="onSelect('songs')">
                     <app-libraryTracks></app-libraryTracks>
