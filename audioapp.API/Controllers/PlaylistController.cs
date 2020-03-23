@@ -47,6 +47,9 @@ namespace audioapp.API.Controllers
         [Route("{userId}")]
         public async Task<IActionResult> GetPlaylistsOfUser(int userId)
         {
+            if(userId != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))
+                return Unauthorized();
+
             var playlistsOfUser =  await _repo.GetPlaylistsOfUser(userId);
             return Ok(playlistsOfUser);
         }
@@ -57,6 +60,21 @@ namespace audioapp.API.Controllers
         {
             var playlist = await _repo.GetPlaylist(playlistId);
             return Ok(playlist);
+        }
+
+        [Authorize]
+        [HttpPost]
+        [Route("{userId}/add/{playlistId}/{trackId}")]
+        public async Task<IActionResult> AddTrackToPlaylist([FromBody]PlaylistTrack playlistTrackToAdd, int userId)
+        {
+            if(userId != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))
+                return Unauthorized();
+
+            _repo.Add(playlistTrackToAdd);
+            if (await _repo.SaveAll()){
+                return Ok();
+            }
+            return Ok(500);
         }
     }
 }
