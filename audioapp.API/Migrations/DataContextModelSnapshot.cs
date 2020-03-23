@@ -49,6 +49,9 @@ namespace audioapp.API.Migrations
                     b.Property<int>("TrackId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("Id")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("PlaylistId", "TrackId");
 
                     b.HasIndex("TrackId");

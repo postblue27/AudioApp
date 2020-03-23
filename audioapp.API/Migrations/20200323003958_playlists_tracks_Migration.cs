@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace audioapp.API.Migrations
 {
-    public partial class PlaylistsMig : Migration
+    public partial class playlists_tracks_Migration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -34,7 +34,8 @@ namespace audioapp.API.Migrations
                 columns: table => new
                 {
                     TrackId = table.Column<int>(nullable: false),
-                    PlaylistId = table.Column<int>(nullable: false)
+                    PlaylistId = table.Column<int>(nullable: false),
+                    Id = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

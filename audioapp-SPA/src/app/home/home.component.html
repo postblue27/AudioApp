@@ -12,7 +12,7 @@
       </tr>
       <tr *ngFor="let track of tracks" class="trackDiv" id={{track.publicId}} (click)="this.trackService.trackDivClick(track.publicId); this.trackService.setActiveTrack(track);" 
           (mouseover)="this.trackService.trackDivMouseOver(track.publicId)" (mouseout)="this.trackService.trackDivMouseOut(track.publicId)">
-        <td><a (click)="this.trackService.modifyHref(track.url, $event, track.performerName, track.trackName)"><fa-icon [icon]="faArrowAltCircleDown" (mouseover)="this.trackService.downloadIconMouseOver($event)" class="fa-lg downloadIcon"></fa-icon></a></td>
+        <td><a (click)="this.trackService.modifyHref(track.url, $event, track.performerName, track.trackName)"><fa-icon [icon]="this.trackService.faArrowAltCircleDown" (mouseover)="this.trackService.downloadIconMouseOver($event)" class="fa-lg downloadIcon"></fa-icon></a></td>
         <td><span>{{track.trackName}}</span></td>
         <td><span>{{track.performerName}}</span></td>
         <td class="trackDateAdded">{{track.dateAdded}}</td>

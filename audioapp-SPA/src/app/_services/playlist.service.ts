@@ -44,4 +44,9 @@ export class PlaylistService {
   isDetailedViewModeEnabled() {
     return this.detailedViewMode;
   }
+
+  getTracksOfPlaylist(playlistId: string) {
+    return this.http.get(this.baseUrl + 'playlist/' + this.authService.decodedToken.nameid +
+      '/tracks/' + playlistId);
+  }
 }

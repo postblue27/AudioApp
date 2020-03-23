@@ -58,7 +58,7 @@ namespace audioapp.API.Data
         }
         public async Task<List<Track>> GetTracksOfUser(int id)
         {
-            var tracksOfUser = await _context.Tracks.Where(t => t.UserId == id).ToListAsync();
+            var tracksOfUser = await _context.Tracks.Include(t => t.User).Where(t => t.UserId == id).ToListAsync();
             return tracksOfUser;
         }
 
@@ -75,5 +75,14 @@ namespace audioapp.API.Data
             return playlist;
         }
 
+        public async Task<List<Track>> GetTracksOfPlaylist(int playlistId)
+        {
+            var tracksOfPlaylist = 
+                from t in _context.Tracks
+                join pt in _context.PlaylistTracks on t.TrackId equals pt.TrackId
+                where pt.PlaylistId == playlistId
+                select t;
+            return await tracksOfPlaylist.Include(t => t.User).ToListAsync();
+        }
     }
 }

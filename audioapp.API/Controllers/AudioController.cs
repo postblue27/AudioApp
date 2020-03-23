@@ -73,7 +73,14 @@ namespace audioapp.API.Controllers
         public async Task<IActionResult> GetTracksOfUser(int userId)
         {
             var tracksOfUser = await _repo.GetTracksOfUser(userId);
-            return Ok(tracksOfUser);
+
+            List<TrackForReturnDto> tracksToReturn = new List<TrackForReturnDto>();
+            for (int i = 0; i < tracksOfUser.Count; i++)
+            {
+                tracksToReturn.Add(_mapper.Map<TrackForReturnDto>(tracksOfUser[i]));
+            }
+
+            return Ok(tracksToReturn);
         }
         [Authorize]
         [HttpPost]

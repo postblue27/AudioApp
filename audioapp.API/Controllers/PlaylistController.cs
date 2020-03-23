@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using audioapp.API.Data;
@@ -64,7 +65,7 @@ namespace audioapp.API.Controllers
 
         [Authorize]
         [HttpPost]
-        [Route("{userId}/add/{playlistId}/{trackId}")]
+        [Route("{userId}/addtrack")]
         public async Task<IActionResult> AddTrackToPlaylist([FromBody]PlaylistTrack playlistTrackToAdd, int userId)
         {
             if(userId != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))
@@ -75,6 +76,23 @@ namespace audioapp.API.Controllers
                 return Ok();
             }
             return Ok(500);
+        }
+        [Authorize]
+        [HttpGet]
+        [Route("{userId}/tracks/{playlistId}")]
+        public async Task<IActionResult> GetTracksOfPlaylist(int userId, int playlistId)
+        {
+            if(userId != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))
+                return Unauthorized();
+
+            var tracksOfPlaylist = await _repo.GetTracksOfPlaylist(playlistId);
+            List<TrackForReturnDto> tracksToReturn = new List<TrackForReturnDto>();
+            for (int i = 0; i < tracksOfPlaylist.Count; i++)
+            {
+                tracksToReturn.Add(_mapper.Map<TrackForReturnDto>(tracksOfPlaylist[i]));
+            }
+
+            return Ok(tracksToReturn);
         }
     }
 }

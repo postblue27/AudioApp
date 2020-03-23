@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TrackService } from '../_services/track.service';
 import { faArrowCircleDown } from '@fortawesome/free-solid-svg-icons';
+import { AuthService } from '../_services/auth.service';
 
 @Component({
   selector: 'app-libraryTracks',
@@ -10,14 +11,19 @@ import { faArrowCircleDown } from '@fortawesome/free-solid-svg-icons';
 export class LibraryTracksComponent implements OnInit {
   tracks: any;
   faArrowAltCircleDown = faArrowCircleDown;
-  constructor(public trackService: TrackService) { }
+  constructor(public trackService: TrackService, private authService: AuthService) { }
 
   ngOnInit() {
-    this.getTracks();
+    this.trackService.userTracksUIupdate.subscribe(() => {
+      this.getTracksOfUser();
+    });
+    if (this.authService.loggedIn()) {
+      this.getTracksOfUser();
+    }
   }
 
-  getTracks() {
-    this.trackService.getTracks().subscribe(response => {
+  getTracksOfUser() {
+    this.trackService.getTracksOfUser().subscribe(response => {
       this.tracks = response;
     }, error => {
       console.log(error);

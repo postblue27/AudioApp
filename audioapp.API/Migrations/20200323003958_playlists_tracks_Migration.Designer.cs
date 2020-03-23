@@ -9,8 +9,8 @@ using audioapp.API.Data;
 namespace audioapp.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200312082507_PlaylistsMig")]
-    partial class PlaylistsMig
+    [Migration("20200323003958_playlists_tracks_Migration")]
+    partial class playlists_tracks_Migration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -49,6 +49,9 @@ namespace audioapp.API.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("TrackId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Id")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("PlaylistId", "TrackId");

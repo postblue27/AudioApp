@@ -3,6 +3,7 @@ import { Router, NavigationEnd, NavigationStart, Navigation } from '@angular/rou
 import { TabsetComponent, TabDirective } from 'ngx-bootstrap';
 import { filter } from 'rxjs/operators';
 import { PlaylistService } from '../_services/playlist.service';
+import { TrackService } from '../_services/track.service';
 
 @Component({
   selector: 'app-library',
@@ -11,7 +12,7 @@ import { PlaylistService } from '../_services/playlist.service';
 })
 export class LibraryComponent implements OnInit {
   @ViewChild('tabset', {static: true}) tabset: TabsetComponent;
-  constructor(private router: Router, public playlistService: PlaylistService) { 
+  constructor(private router: Router, public playlistService: PlaylistService, private trackService: TrackService) { 
     this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe(() => {
       if (this.router.url === '/library/playlists') {
         this.tabset.tabs[0].active = true;
@@ -39,6 +40,7 @@ export class LibraryComponent implements OnInit {
     }
     if (tab === 'songs') {
       this.router.navigate(['library/songs']);
+      this.trackService.userTracksUIupdate.emit();
     }
     if (tab === 'upload') {
       this.router.navigate(['library/upload']);

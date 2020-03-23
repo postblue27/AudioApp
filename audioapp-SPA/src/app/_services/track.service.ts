@@ -1,5 +1,7 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { AuthService } from './auth.service';
+import { faArrowCircleDown } from '@fortawesome/free-solid-svg-icons';
 
 @Injectable({
   providedIn: 'root'
@@ -8,10 +10,16 @@ export class TrackService {
   activeTrack: any;
   activeTrackUpdated: EventEmitter<any> = new EventEmitter();
   activeTrackColor = 'rgb(70, 0, 100)';
-  constructor(private http: HttpClient) { }
+  userTracksUIupdate: EventEmitter<any> = new EventEmitter();
+  faArrowAltCircleDown = faArrowCircleDown;
+  constructor(private http: HttpClient, private authService: AuthService) { }
 
   getTracks() {
     return this.http.get('http://localhost:5000/api/audio');
+  }
+
+  getTracksOfUser() {
+    return this.http.get('http://localhost:5000/api/audio/user/' + this.authService.decodedToken.nameid);
   }
 
   setActiveTrack(track: any) {
