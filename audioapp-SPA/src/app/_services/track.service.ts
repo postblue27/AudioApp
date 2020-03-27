@@ -2,6 +2,9 @@ import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from './auth.service';
 import { faArrowCircleDown } from '@fortawesome/free-solid-svg-icons';
+import { faPlay } from '@fortawesome/free-solid-svg-icons';
+import { faPause } from '@fortawesome/free-solid-svg-icons';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +15,10 @@ export class TrackService {
   activeTrackColor = 'rgb(70, 0, 100)';
   userTracksUIupdate: EventEmitter<any> = new EventEmitter();
   faArrowAltCircleDown = faArrowCircleDown;
+  faPlay = faPlay;
+  faPause = faPause;
+  faTimes = faTimes;
+  private addTracksMode = false;
   constructor(private http: HttpClient, private authService: AuthService) { }
 
   getTracks() {
@@ -25,6 +32,24 @@ export class TrackService {
   setActiveTrack(track: any) {
     this.activeTrack = track;
     this.activeTrackUpdated.emit(this.activeTrack);
+  }
+
+  isTrackActive(track: any) {
+    if (track === this.activeTrack) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  isAddTracksModeEnabled() {
+    return this.addTracksMode;
+  }
+  enableAddTracksMode() {
+    this.addTracksMode = true;
+  }
+  disableAddTracksMode() {
+    this.addTracksMode = false;
   }
 
   trackDivClick(id: string) {

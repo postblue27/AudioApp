@@ -28,13 +28,12 @@ namespace audioapp.API.Controllers
         private Cloudinary _cloudinary;
         private readonly IAppRepository _repo;
 
-        public AudioController(DataContext conetxt, IAppRepository repo, IMapper mapper,
+        public AudioController(IAppRepository repo, IMapper mapper,
         IOptions<CloudinarySettings> cloudinaryConfig)
         {
             _repo = repo;
             _cloudinaryConfig = cloudinaryConfig;
             _mapper = mapper;
-            _context = conetxt;
 
             Account acc = new Account(
                 _cloudinaryConfig.Value.CloudName,

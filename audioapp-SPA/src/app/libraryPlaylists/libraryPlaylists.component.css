@@ -86,10 +86,8 @@
 
 .leftBarCreatePlaylistDivInside{
     margin: auto;
-    /* text-align: center; */
     font-size: 30px;
     color: rgb(200, 200, 200);
-    
 }
 
 .leftBarCreatePlaylistDiv:hover .leftBarCreatePlaylistDivInside:first-child{

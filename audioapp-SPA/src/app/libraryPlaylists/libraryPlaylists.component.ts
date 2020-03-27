@@ -33,9 +33,8 @@ export class LibraryPlaylistsComponent implements OnInit {
     });
   }
 
-  playlistDivClick(playlistId: string) {
-    this.playlistService.currentPlaylistId = playlistId;
-    this.playlistService.enableDetailedViewMode(playlistId);
+  playlistDivClick(playlist: any) {
+    this.playlistService.enableDetailedViewMode(playlist);
   }
 
 }

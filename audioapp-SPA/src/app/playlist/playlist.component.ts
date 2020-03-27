@@ -13,12 +13,8 @@ export class PlaylistComponent implements OnInit {
   constructor(public playlistService: PlaylistService, public trackService: TrackService) { }
 
   ngOnInit() {
-    this.playlistService.getPlaylist(this.playlistService.currentPlaylistId).subscribe(response => {
-      this.playlist = response;
-    }, error => {
-      console.log(error);
-    });
-    this.playlistService.getTracksOfPlaylist(this.playlistService.currentPlaylistId).subscribe(response => {
+    this.playlist = this.playlistService.currentPlaylist;
+    this.playlistService.getTracksOfPlaylist(this.playlistService.currentPlaylist.playlistId).subscribe(response => {
       this.tracks = response;
     }, error => {
       console.log(error);

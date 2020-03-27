@@ -30,6 +30,7 @@ import { PlaylistService } from './_services/playlist.service';
 import { LibraryPlaylistsComponent } from './libraryPlaylists/libraryPlaylists.component';
 import { LibraryTracksComponent } from './libraryTracks/libraryTracks.component';
 import { PlaylistComponent } from './playlist/playlist.component';
+import { AddTracksToPlaylistComponent } from './addTracksToPlaylist/addTracksToPlaylist.component';
 
 
 export function tokenGetter() {
@@ -54,7 +55,8 @@ export function tokenGetter() {
       PlaylistCreationComponent,
       LibraryPlaylistsComponent,
       LibraryTracksComponent,
-      PlaylistComponent
+      PlaylistComponent,
+      AddTracksToPlaylistComponent
    ],
    imports: [
       BrowserModule,

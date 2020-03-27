@@ -9,7 +9,7 @@
     padding-right: 10px;
     background: rgba(40, 40, 40, 1);
     text-align: center;
-    
+    z-index: 100;
 }
 .bottomPlayerInside{
     max-width: 800px;

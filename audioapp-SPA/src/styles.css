@@ -99,13 +99,13 @@ html, body{
     border: none;
     background: none !important;
     color: white !important;
-    background-color: rgb(40,40,40) !important;
+    /* background-color: rgb(40,40,40) !important; */
   }
 
 
 
-
-  .trackDiv a{
+/*----------- tracks styles -----------*/
+.trackDiv a{
     color: inherit;
     text-decoration: none;
 }

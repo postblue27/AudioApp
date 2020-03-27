@@ -1,0 +1,54 @@
+.addTracksToPlaylistMainDiv{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.8);
+    z-index: 10;
+
+    display: flex;
+    /* align-items: center; */
+}
+.addTracksToPlaylistInside{
+    width: 100%;
+    max-width: 400px;
+    max-height: 400px;
+    margin: auto;
+    background-color: rgb(27,27,27);
+    border: 1px solid rgb(40,40,40);
+    user-select: none;
+    overflow: auto;
+}
+
+.addTrackDiv{
+    height: 50px;
+    border-bottom: 1px solid rgb(40,40,40);
+    color: white;
+}
+
+.closeIconDiv{
+    width: 100%;
+    text-align: right;
+    font-size: 26px;
+    padding-right: 12px;
+    color: white;
+    cursor: pointer;
+}
+
+.addTrackIconDiv{
+    display: inline;
+    height: 100%;
+}
+.addTrackInfoDiv{
+    display: inline;
+    /* width: 100%; */
+}
+.trackNameSpan{
+    display: block;
+}
+.performerNameSpan{
+    display: block;
+}

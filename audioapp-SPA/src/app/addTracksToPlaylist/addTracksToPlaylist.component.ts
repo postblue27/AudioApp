@@ -1,12 +1,12 @@
-import { Component, OnInit, Input, Output, EventEmitter, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TrackService } from '../_services/track.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-addTracksToPlaylist',
+  templateUrl: './addTracksToPlaylist.component.html',
+  styleUrls: ['./addTracksToPlaylist.component.css']
 })
-export class HomeComponent implements OnInit {
+export class AddTracksToPlaylistComponent implements OnInit {
   tracks: any;
 
   constructor(public trackService: TrackService) { }
@@ -22,4 +22,5 @@ export class HomeComponent implements OnInit {
       console.log(error);
     });
   }
+
 }

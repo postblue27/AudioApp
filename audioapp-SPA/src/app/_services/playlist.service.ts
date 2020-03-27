@@ -14,6 +14,7 @@ export class PlaylistService {
   userPlaylistsUIupdate: EventEmitter<any> = new EventEmitter();
   private detailedViewMode = false;
   currentPlaylistId: any;
+  currentPlaylist: any;
   constructor(private http: HttpClient, private authService: AuthService, private route: ActivatedRoute) { }
 
   disableCreationMode() {
@@ -35,7 +36,8 @@ export class PlaylistService {
     return this.http.get(this.baseUrl + 'playlist/exact/' + playlistId);
   }
 
-  enableDetailedViewMode(playlistId: string) {
+  enableDetailedViewMode(playlist: any) {
+    this.currentPlaylist = playlist;
     this.detailedViewMode = true;
   }
   disableDetailedViewMode() {

@@ -1,6 +1,7 @@
 <app-nav></app-nav>
 <app-loginForm *ngIf="this.authService.isLoginModeEnabled()"></app-loginForm>
 <app-playlistCreation *ngIf="this.playlistService.isCreationModeEnabled()"></app-playlistCreation>
+<app-addTracksToPlaylist *ngIf="this.trackService.isAddTracksModeEnabled()"></app-addTracksToPlaylist>
 <app-leftBar></app-leftBar>
 <app-rightBar></app-rightBar>
 <app-bottomMobileNav></app-bottomMobileNav>
