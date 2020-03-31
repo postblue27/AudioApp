@@ -2,10 +2,10 @@ import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 import { AuthService } from '../_services/auth.service';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faSignInAlt } from '@fortawesome/free-solid-svg-icons';
 import { AlertifyService } from '../_services/alertify.service';
 import { Router } from '@angular/router';
+import { TrackService } from '../_services/track.service';
 
 @Component({
   selector: 'app-nav',
@@ -16,10 +16,9 @@ export class NavComponent implements OnInit {
   model: any = localStorage.getItem('username');
   faChevronLeft = faChevronLeft;
   faChevronRight = faChevronRight;
-  faSearch = faSearch;
   faSignInAlt = faSignInAlt;
   
-  constructor(public authService: AuthService, private alertify: AlertifyService, private router: Router) { }
+  constructor(public trackService: TrackService, public authService: AuthService, private alertify: AlertifyService, private router: Router) { }
 
   ngOnInit() {
   }

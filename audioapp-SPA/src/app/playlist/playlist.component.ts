@@ -14,6 +14,12 @@ export class PlaylistComponent implements OnInit {
 
   ngOnInit() {
     this.playlist = this.playlistService.currentPlaylist;
+    this.getTracksOfPlaylist();
+    this.playlistService.tracksAddedToPlaylistUpdate.subscribe(() => {
+      this.getTracksOfPlaylist();
+    });
+  }
+  getTracksOfPlaylist() {
     this.playlistService.getTracksOfPlaylist(this.playlistService.currentPlaylist.playlistId).subscribe(response => {
       this.tracks = response;
     }, error => {

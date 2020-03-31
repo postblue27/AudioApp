@@ -4,8 +4,8 @@
   
     
     <div *ngIf="!registerMode">
-      <div class="closeIconDiv" (click)="cancelLoginMode()">
-        <fa-icon [icon]="faTimes"></fa-icon>
+      <div class="closeIconDiv" >
+        <fa-icon [icon]="faTimes" (click)="cancelLoginMode()"></fa-icon>
       </div>
       <div class="signInDiv">
         Sign In

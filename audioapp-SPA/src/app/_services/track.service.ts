@@ -5,6 +5,8 @@ import { faArrowCircleDown } from '@fortawesome/free-solid-svg-icons';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { faPause } from '@fortawesome/free-solid-svg-icons';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +20,8 @@ export class TrackService {
   faPlay = faPlay;
   faPause = faPause;
   faTimes = faTimes;
-  private addTracksMode = false;
+  faSearch = faSearch;
+  faPlus = faPlus;
   constructor(private http: HttpClient, private authService: AuthService) { }
 
   getTracks() {
@@ -40,16 +43,6 @@ export class TrackService {
     } else {
       return false;
     }
-  }
-
-  isAddTracksModeEnabled() {
-    return this.addTracksMode;
-  }
-  enableAddTracksMode() {
-    this.addTracksMode = true;
-  }
-  disableAddTracksMode() {
-    this.addTracksMode = false;
   }
 
   trackDivClick(id: string) {

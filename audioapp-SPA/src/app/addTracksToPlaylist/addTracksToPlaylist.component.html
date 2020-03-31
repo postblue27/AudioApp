@@ -1,15 +1,29 @@
 <div class="addTracksToPlaylistMainDiv">
   <div class="addTracksToPlaylistInside">
-    <div class="closeIconDiv" (click)="this.trackService.disableAddTracksMode()">
+    <!--Close Icon-->
+    <div class="closeIconDiv" (click)="this.playlistService.disableAddTracksMode()">
       <fa-icon [icon]="this.trackService.faTimes"></fa-icon>
     </div>
-    <div *ngFor="let track of tracks" class="addTrackDiv trackDiv" id={{track.publicId}} (click)="this.trackService.trackDivClick(track.publicId); this.trackService.setActiveTrack(track);" 
-        (mouseover)="this.trackService.trackDivMouseOver(track.publicId)" (mouseout)="this.trackService.trackDivMouseOut(track.publicId)">
-      <div class="addTrackIconDiv" *ngIf="!this.trackService.isTrackActive(track)"><fa-icon [icon]="this.trackService.faPlay"></fa-icon></div>
-      <div class="addTrackIconDiv" *ngIf="this.trackService.isTrackActive(track)"><fa-icon [icon]="this.trackService.faPause"></fa-icon></div>
-      <div class="addTrackInfoDiv">
-        <span class="trackNameSpan">{{track.trackName}}</span>
-        <span class="performerNameSpan">{{track.performerName}}</span>
+    <!--Search Form-->
+    <div class="searchForm">
+      <form>
+        <div class="searchIconDiv"><fa-icon [icon]="this.trackService.faSearch" class="searchIcon"></fa-icon></div>
+        <input class="searchFormInput" type="text" placeholder="Search" name="search"
+          aria-label="Search">
+      </form>
+    </div>
+    <!--Tracks-->
+    <div class="tracksDiv">
+      <div *ngFor="let track of tracks" class="addTrackDiv trackDiv" id={{track.publicId}} 
+          (mouseover)="this.trackService.trackDivMouseOver(track.publicId)" (mouseout)="this.trackService.trackDivMouseOut(track.publicId)">
+        <div class="addTrackIconDiv" *ngIf="!this.trackService.isTrackActive(track)" (click)="this.trackService.setActiveTrack(track)"><fa-icon [icon]="this.trackService.faPlay"></fa-icon></div>
+        <div class="addTrackIconDiv" *ngIf="this.trackService.isTrackActive(track)"><fa-icon [icon]="this.trackService.faPause"></fa-icon></div>
+        <div class="addTrackInfoDiv">
+          <span class="trackInfoSpan">{{track.trackName}}</span>
+          <span class="trackInfoSpan">{{track.performerName}}</span>
+        </div>
+        <div class="addTrackIconDiv" (click)="addTrackToPlaylist(track.trackId, 
+          this.playlistService.currentPlaylist.playlistId)"><fa-icon [icon]="this.trackService.faPlus"></fa-icon></div>
       </div>
     </div>
   </div>
