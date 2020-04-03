@@ -2,11 +2,37 @@
     padding: 10px;
 }
 .mainTitle{
-    /* padding: 10px; */
     font-size: 50px;
     font-weight: 300;
     color: white;
 }
 .libraryTabset{
     margin-top: 15px;
+}
+
+.libraryTabsetInside{
+    width: 100%;
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-around;
+}
+.libraryTabsetInside a{
+    height: 45px;
+    flex-basis: 100%;
+    text-align: center;
+    font-size: 18px;
+    padding-top: 6px;
+    user-select: none;
+    text-decoration: none;
+    cursor: pointer;
+    border-bottom: 1px solid rgb(210,210,210);
+    color: rgb(210,210,210);
+}
+.libraryTabsetInside a:hover {
+    border-bottom: 4px solid rgb(130, 0, 190);
+    color: white;
+}
+.activeTab{
+    border-bottom: 4px solid rgb(180, 0, 255) !important;
+    color: white !important;
 }

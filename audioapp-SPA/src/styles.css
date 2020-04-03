@@ -68,42 +68,6 @@ html, body{
 }
 
 
-.nav{
-    border-bottom: none !important;
-}
-.nav-link{
-    color: rgb(210,210,210);
-    font-size: 18px;
-    border: none !important;
-}
-.nav-item{
-    width: 33.33%;
-    text-align: center;
-    border-bottom: 1px solid rgb(210,210,210);
-}
-
-.nav-tabs > li.open, .nav-tabs > li:hover {
-    border: none;
-    border-bottom: 4px solid rgb(130, 0, 190);
-}
-.nav-tabs > li.open > a, .nav-tabs > li:hover > a {
-    border: none;
-    color: white;
-}
-
-.nav-tabs > li.active {
-    border-bottom: 4px solid rgb(180, 0, 255);
-    position: relative;
-  }
-  .nav-tabs > li.active > a {
-    border: none;
-    background: none !important;
-    color: white !important;
-    /* background-color: rgb(40,40,40) !important; */
-  }
-
-
-
 /*----------- tracks styles -----------*/
 .trackDiv a{
     color: inherit;

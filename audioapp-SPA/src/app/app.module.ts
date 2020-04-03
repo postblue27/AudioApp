@@ -31,6 +31,7 @@ import { LibraryPlaylistsComponent } from './libraryPlaylists/libraryPlaylists.c
 import { LibraryTracksComponent } from './libraryTracks/libraryTracks.component';
 import { PlaylistComponent } from './playlist/playlist.component';
 import { AddTracksToPlaylistComponent } from './addTracksToPlaylist/addTracksToPlaylist.component';
+import { ProfileInsideComponent } from './profileInside/profileInside.component';
 
 
 export function tokenGetter() {
@@ -56,7 +57,8 @@ export function tokenGetter() {
       LibraryPlaylistsComponent,
       LibraryTracksComponent,
       PlaylistComponent,
-      AddTracksToPlaylistComponent
+      AddTracksToPlaylistComponent,
+      ProfileInsideComponent
    ],
    imports: [
       BrowserModule,

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PlaylistService } from '../_services/playlist.service';
 import { TrackService } from '../_services/track.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-playlist',
@@ -10,7 +11,9 @@ import { TrackService } from '../_services/track.service';
 export class PlaylistComponent implements OnInit {
   tracks: any;
   playlist: any;
-  constructor(public playlistService: PlaylistService, public trackService: TrackService) { }
+  constructor(public playlistService: PlaylistService, public trackService: TrackService, private router: Router, private route: ActivatedRoute) {
+    //route.paramMap.
+  }
 
   ngOnInit() {
     this.playlist = this.playlistService.currentPlaylist;

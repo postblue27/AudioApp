@@ -2,7 +2,7 @@ import { Injectable, EventEmitter } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from './auth.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { PlaylistTrack } from '../_models/playlistTrack';
 
@@ -17,7 +17,12 @@ export class PlaylistService {
   private detailedViewMode = false;
   currentPlaylist: any;
   private addTracksMode = false;
-  constructor(private http: HttpClient, private authService: AuthService, private route: ActivatedRoute) { }
+  constructor(private http: HttpClient, private authService: AuthService, private route: ActivatedRoute,
+    private router: Router) { 
+      route.params.subscribe(p => {
+        console.log(route.snapshot.paramMap.keys);
+      });
+    }
 
   disableCreationMode() {
     this.creationMode = false;

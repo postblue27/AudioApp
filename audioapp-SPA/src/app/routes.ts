@@ -8,6 +8,7 @@ import { LibraryPlaylistsComponent } from './libraryPlaylists/libraryPlaylists.c
 import { LibraryTracksComponent } from './libraryTracks/libraryTracks.component';
 import { FileUploaderComponent } from './fileUploader/fileUploader.component';
 import { PlaylistComponent } from './playlist/playlist.component';
+import { ProfileInsideComponent } from './profileInside/profileInside.component';
 
 export const appRoutes: Routes = [
     {path: '', component: HomeComponent},
@@ -19,11 +20,20 @@ export const appRoutes: Routes = [
             {path: 'library', component: LibraryComponent,
                 children:[
                     {path: 'playlists', component: LibraryPlaylistsComponent},
+                    {path: 'playlists/:playlistId', component: PlaylistComponent},
                     {path: 'songs', component: LibraryTracksComponent},
                     {path: 'upload', component: FileUploaderComponent}
                 ]
             },
-            {path: 'profile', component: ProfileComponent},
+            {path: 'profile', component: ProfileComponent,
+                children:[
+                    //{path: '', component: ProfileInsideComponent},
+                    {path: 'playlists', component: LibraryPlaylistsComponent},
+                    {path: 'playlists/:playlistId', component: PlaylistComponent},
+                    {path: 'songs', component: LibraryTracksComponent},
+                    {path: 'upload', component: FileUploaderComponent}
+                ]
+            },
         ]
     },
     {path: 'login', component: LoginFormComponent},

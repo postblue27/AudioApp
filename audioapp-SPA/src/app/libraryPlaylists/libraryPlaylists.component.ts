@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PlaylistService } from '../_services/playlist.service';
 import { AuthService } from '../_services/auth.service';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd, ActivatedRouteSnapshot, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-libraryPlaylists',
@@ -14,7 +14,8 @@ export class LibraryPlaylistsComponent implements OnInit {
   faPlus = faPlus;
 
   constructor(public playlistService: PlaylistService, private authService: AuthService,
-    private router: Router) { }
+    private router: Router) {
+     }
 
   ngOnInit() {
     this.playlistService.userPlaylistsUIupdate.subscribe(() => {

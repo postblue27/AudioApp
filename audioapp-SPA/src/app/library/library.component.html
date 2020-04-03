@@ -1,20 +1,15 @@
 <div class="contentDiv">
     <div class="libraryDiv">
         <span class="mainTitle">Library</span>
-    
+
         <div class="libraryTabset">
-            <tabset #tabset calss="libraryTabsetInside">
-                <tab heading="Playlists" (select)="onSelect('playlists')">
-                    <app-libraryPlaylists *ngIf="!this.playlistService.isDetailedViewModeEnabled()"></app-libraryPlaylists>
-                    <app-playlist *ngIf="this.playlistService.isDetailedViewModeEnabled()"></app-playlist>
-                </tab>
-                <tab heading="Songs" (select)="onSelect('songs')">
-                    <app-libraryTracks></app-libraryTracks>
-                </tab>
-                <tab heading="Upload" (select)="onSelect('upload')">
-                    <app-fileUploader></app-fileUploader>
-                </tab>
-            </tabset>
+            <div class="libraryTabsetInside">
+                <a class="tabLink" [routerLink]="['/library/playlists']" routerLinkActive="activeTab">Playlists</a>
+                <a class="tabLink" [routerLink]="['/library/songs']" routerLinkActive="activeTab">Songs</a>
+                <a class="tabLink" [routerLink]="['/library/upload']" routerLinkActive="activeTab">Upload</a>
+            </div>
+            <router-outlet></router-outlet>
         </div>
+
     </div>
 </div>
