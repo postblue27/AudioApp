@@ -54,7 +54,7 @@
         <div class="infospanDiv mt-3">
           <span class="info-span">YOUR PLAYLISTS</span>
         </div>
-        <div class="playlistDiv" *ngFor="let playlist of playlists">
+        <div class="playlistDiv" *ngFor="let playlist of playlists" [routerLink]="['/library/playlists', playlist.playlistId]">
           <span class="playlistSpan">{{playlist.playlistName}}</span>
         </div>
       </div>
@@ -62,7 +62,7 @@
   </div>
 
   <div class="leftBarCreatePlaylistDiv">
-    <div class="leftBarCreatePlaylistDivInside" (click)="this.playlistService.enableCreationMode()">
+    <div class="leftBarCreatePlaylistDivInside" [routerLink]="['/library/playlists/create']">
       <fa-icon [icon]="faPlus" class="mr-2"></fa-icon>
       <span>New Playlist</span>
     </div>
