@@ -9,6 +9,8 @@ import { LibraryTracksComponent } from './libraryTracks/libraryTracks.component'
 import { FileUploaderComponent } from './fileUploader/fileUploader.component';
 import { PlaylistComponent } from './playlist/playlist.component';
 import { ProfileInsideComponent } from './profileInside/profileInside.component';
+import { AddTracksToPlaylistComponent } from './addTracksToPlaylist/addTracksToPlaylist.component';
+import { PlaylistCreationComponent } from './playlistCreation/playlistCreation.component';
 
 export const appRoutes: Routes = [
     {path: '', component: HomeComponent},
@@ -18,9 +20,17 @@ export const appRoutes: Routes = [
         canActivate: [AuthGuard],
         children: [
             {path: 'library', component: LibraryComponent,
-                children:[
-                    {path: 'playlists', component: LibraryPlaylistsComponent},
-                    {path: 'playlists/:playlistId', component: PlaylistComponent},
+                children: [
+                    {path: 'playlists', component: LibraryPlaylistsComponent,
+                        children: [
+                            {path: 'create', component: PlaylistCreationComponent}
+                        ]
+                    },
+                    {path: 'playlists/:playlistId', component: PlaylistComponent,
+                        children: [
+                            {path: 'addtracks', component: AddTracksToPlaylistComponent}
+                        ]
+                    },
                     {path: 'songs', component: LibraryTracksComponent},
                     {path: 'upload', component: FileUploaderComponent}
                 ]

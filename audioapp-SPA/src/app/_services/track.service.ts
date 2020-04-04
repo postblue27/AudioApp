@@ -7,6 +7,7 @@ import { faPause } from '@fortawesome/free-solid-svg-icons';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,8 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 export class TrackService {
   activeTrack: any;
   activeTrackUpdated: EventEmitter<any> = new EventEmitter();
+  pauseTrack: EventEmitter<any> = new EventEmitter();
+  resumeTrack: EventEmitter<any> = new EventEmitter();
   activeTrackColor = 'rgb(70, 0, 100)';
   userTracksUIupdate: EventEmitter<any> = new EventEmitter();
   faArrowAltCircleDown = faArrowCircleDown;
@@ -33,8 +36,15 @@ export class TrackService {
   }
 
   setActiveTrack(track: any) {
-    this.activeTrack = track;
-    this.activeTrackUpdated.emit(this.activeTrack);
+    if (this.activeTrack === track){
+      this.resumeTrack.emit();
+    } else {
+      this.activeTrack = track;
+      this.activeTrackUpdated.emit(this.activeTrack);
+    }
+  }
+  pauseActiveTrack() {
+    this.pauseTrack.emit();
   }
 
   isTrackActive(track: any) {

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TrackService } from '../_services/track.service';
 import { PlaylistService } from '../_services/playlist.service';
+import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-addTracksToPlaylist',
@@ -10,7 +12,8 @@ import { PlaylistService } from '../_services/playlist.service';
 export class AddTracksToPlaylistComponent implements OnInit {
   tracks: any;
 
-  constructor(public trackService: TrackService, public playlistService: PlaylistService) { }
+  constructor(public trackService: TrackService, public playlistService: PlaylistService, private router: Router,
+    private location: Location) { }
 
   ngOnInit() {
     this.getTracks();
@@ -30,5 +33,10 @@ export class AddTracksToPlaylistComponent implements OnInit {
     }, error => {
       console.log(error);
     });
+  }
+
+  close() {
+    this.playlistService.tracksAddedToPlaylistUpdate.emit();
+    this.location.back();
   }
 }

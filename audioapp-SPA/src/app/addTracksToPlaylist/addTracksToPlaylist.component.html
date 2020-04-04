@@ -1,7 +1,7 @@
 <div class="addTracksToPlaylistMainDiv">
   <div class="addTracksToPlaylistInside">
     <!--Close Icon-->
-    <div class="closeIconDiv" (click)="this.playlistService.disableAddTracksMode()">
+    <div class="closeIconDiv" (click)="close()">
       <fa-icon [icon]="this.trackService.faTimes"></fa-icon>
     </div>
     <!--Search Form-->
@@ -15,9 +15,9 @@
     <!--Tracks-->
     <div class="tracksDiv">
       <div *ngFor="let track of tracks" class="addTrackDiv trackDiv" id={{track.publicId}} 
-          (mouseover)="this.trackService.trackDivMouseOver(track.publicId)" (mouseout)="this.trackService.trackDivMouseOut(track.publicId)">
-        <div class="addTrackIconDiv" *ngIf="!this.trackService.isTrackActive(track)" (click)="this.trackService.setActiveTrack(track)"><fa-icon [icon]="this.trackService.faPlay"></fa-icon></div>
-        <div class="addTrackIconDiv" *ngIf="this.trackService.isTrackActive(track)"><fa-icon [icon]="this.trackService.faPause"></fa-icon></div>
+        (click)="this.trackService.trackDivClick(track.publicId); this.trackService.setActiveTrack(track);">
+        <!-- <div class="addTrackIconDiv" *ngIf="!this.trackService.isTrackActive(track)" (click)="this.trackService.setActiveTrack(track)"><fa-icon [icon]="this.trackService.faPlay"></fa-icon></div>
+        <div class="addTrackIconDiv" *ngIf="this.trackService.isTrackActive(track)" (click)="this.trackService.pauseActiveTrack()"><fa-icon [icon]="this.trackService.faPause"></fa-icon></div> -->
         <div class="addTrackInfoDiv">
           <span class="trackInfoSpan">{{track.trackName}}</span>
           <span class="trackInfoSpan">{{track.performerName}}</span>

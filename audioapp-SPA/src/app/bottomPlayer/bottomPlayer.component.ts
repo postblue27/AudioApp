@@ -35,6 +35,12 @@ export class BottomPlayerComponent implements OnInit{
         trackNameSpan.textContent = newActiveTrack.trackName;
       }
     });
+    this.trackService.pauseTrack.subscribe(() => {
+      audio.pause();
+    });
+    this.trackService.resumeTrack.subscribe(() => {
+      audio.play();
+    });
   }
 
   addListeners() {

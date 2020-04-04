@@ -49,6 +49,10 @@
     padding-top: 7px;
     padding-left: 7px;
     vertical-align: top;
+    cursor: pointer;
+}
+.addTrackIconDiv:hover{
+    color: rgb(180, 0, 255);
 }
 .addTrackInfoDiv{
     display: inline-block;

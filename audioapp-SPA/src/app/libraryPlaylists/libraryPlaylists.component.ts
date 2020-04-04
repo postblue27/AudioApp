@@ -33,9 +33,4 @@ export class LibraryPlaylistsComponent implements OnInit {
       console.log(error);
     });
   }
-
-  playlistDivClick(playlist: any) {
-    this.playlistService.enableDetailedViewMode(playlist);
-  }
-
 }

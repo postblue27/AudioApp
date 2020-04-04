@@ -12,21 +12,27 @@ export class PlaylistComponent implements OnInit {
   tracks: any;
   playlist: any;
   constructor(public playlistService: PlaylistService, public trackService: TrackService, private router: Router, private route: ActivatedRoute) {
-    //route.paramMap.
   }
 
   ngOnInit() {
-    this.playlist = this.playlistService.currentPlaylist;
-    this.getTracksOfPlaylist();
+    this.playlistService.getPlaylist(this.route.snapshot.paramMap.get('playlistId')).subscribe(response => {
+      this.playlist = response;
+      this.getTracksOfPlaylist();
+    }, error => {
+      console.log(error);
+    });
     this.playlistService.tracksAddedToPlaylistUpdate.subscribe(() => {
       this.getTracksOfPlaylist();
     });
   }
   getTracksOfPlaylist() {
-    this.playlistService.getTracksOfPlaylist(this.playlistService.currentPlaylist.playlistId).subscribe(response => {
+    this.playlistService.getTracksOfPlaylist(this.playlist.playlistId).subscribe(response => {
       this.tracks = response;
     }, error => {
       console.log(error);
     });
+  }
+  backToPlaylistsClick() {
+    this.router.navigateByUrl('/library/playlists');
   }
 }

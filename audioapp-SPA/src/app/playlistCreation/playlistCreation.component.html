@@ -1,7 +1,7 @@
 <div class="contentDiv"></div>
 <div class="loginFormMainDiv">
   <div class="loginFormInside">
-    <div class="closeIconDiv" (click)="this.playlistService.disableCreationMode()">
+    <div class="closeIconDiv" (click)="close()">
       <fa-icon [icon]="faTimes"></fa-icon>
     </div>
     <form #playlistCreationForm="ngForm" class="loginForm" (ngSubmit)="createPlaylist()">

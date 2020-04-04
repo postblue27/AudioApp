@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { PlaylistService } from '../_services/playlist.service';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-playlistCreation',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 export class PlaylistCreationComponent implements OnInit {
   faTimes = faTimes;
   model: any = {};
-  constructor(public playlistService: PlaylistService, private router: Router) { }
+  constructor(public playlistService: PlaylistService, private router: Router, private location: Location) { }
 
   ngOnInit() {
   }
@@ -28,5 +29,8 @@ export class PlaylistCreationComponent implements OnInit {
     }, error => {
       console.log(error);
     });
+  }
+  close() {
+    this.location.back();
   }
 }

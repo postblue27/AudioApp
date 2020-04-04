@@ -1,11 +1,12 @@
 <div class="mt-3">
-  <div class="infospanDiv" style="cursor: pointer;" (click)="this.playlistService.disableDetailedViewMode()">
+  <div class="infospanDiv" style="cursor: pointer;" (click)="backToPlaylistsClick()">
     <span>Back</span>
   </div>
   <div class="infospanDiv">
     <span>Playlist: {{playlist?.playlistName}}</span>
   </div>
-  <div class="infospanDiv" (click)="this.playlistService.enableAddTracksMode()">
+  <div class="infospanDiv" (click)="this.playlistService.setCurrentPlaylist(this.playlist)"
+    [routerLink]="['addtracks']">
     <span>Add tracks</span>
   </div>
   <table class="trackTable">
@@ -26,3 +27,4 @@
     </tr>
   </table>
 </div>
+<router-outlet></router-outlet>

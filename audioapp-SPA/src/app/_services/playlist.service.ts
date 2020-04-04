@@ -55,15 +55,8 @@ export class PlaylistService {
     return this.http.get(this.baseUrl + 'playlist/exact/' + playlistId);
   }
 
-  enableDetailedViewMode(playlist: any) {
+  setCurrentPlaylist(playlist: any) {
     this.currentPlaylist = playlist;
-    this.detailedViewMode = true;
-  }
-  disableDetailedViewMode() {
-    this.detailedViewMode = false;
-  }
-  isDetailedViewModeEnabled() {
-    return this.detailedViewMode;
   }
 
   getTracksOfPlaylist(playlistId: string) {
