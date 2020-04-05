@@ -1,7 +1,7 @@
 import { Routes, Router } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LibraryComponent } from './library/library.component';
-import { ProfileComponent } from './profile/profile.component';
+import { ProfileComponent } from './profile-module/profile/profile.component';
 import { AuthGuard } from './_guards/auth.guard';
 import { LoginFormComponent } from './loginForm/loginForm.component';
 import { LibraryPlaylistsComponent } from './libraryPlaylists/libraryPlaylists.component';
@@ -11,6 +11,8 @@ import { PlaylistComponent } from './playlist/playlist.component';
 import { ProfileInsideComponent } from './profileInside/profileInside.component';
 import { AddTracksToPlaylistComponent } from './addTracksToPlaylist/addTracksToPlaylist.component';
 import { PlaylistCreationComponent } from './playlistCreation/playlistCreation.component';
+import { ProfileModuleModule } from './profile-module/profile-module.module';
+import { ProfileModuleComponent } from './profile-module/profile-module.component';
 
 export const appRoutes: Routes = [
     {path: '', component: HomeComponent},
@@ -35,14 +37,14 @@ export const appRoutes: Routes = [
                     {path: 'upload', component: FileUploaderComponent}
                 ]
             },
-            {path: 'profile', component: ProfileComponent,
-                children:[
-                    //{path: '', component: ProfileInsideComponent},
-                    {path: 'playlists', component: LibraryPlaylistsComponent},
-                    {path: 'playlists/:playlistId', component: PlaylistComponent},
-                    {path: 'songs', component: LibraryTracksComponent},
-                    {path: 'upload', component: FileUploaderComponent}
-                ]
+            {path: 'profile', component: ProfileModuleComponent
+                // children:[
+                //     //{path: '', component: ProfileInsideComponent},
+                //     {path: 'playlists', component: LibraryPlaylistsComponent},
+                //     {path: 'playlists/:playlistId', component: PlaylistComponent},
+                //     {path: 'songs', component: LibraryTracksComponent},
+                //     {path: 'upload', component: FileUploaderComponent}
+                // ]
             },
         ]
     },

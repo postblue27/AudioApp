@@ -21,7 +21,7 @@ import { BottomMobileNavComponent } from './bottomMobileNav/bottomMobileNav.comp
 import { LoginFormComponent } from './loginForm/loginForm.component';
 import { ErrorInterceptor, ErrorInterceptorProvider } from './_services/error.interceptor';
 import { LibraryComponent } from './library/library.component';
-import { ProfileComponent } from './profile/profile.component';
+//import { ProfileComponent } from './profile-module/profile/profile.component';
 import { appRoutes } from './routes';
 import { TrackService } from './_services/track.service';
 import { FileUploaderComponent } from './fileUploader/fileUploader.component';
@@ -32,6 +32,7 @@ import { LibraryTracksComponent } from './libraryTracks/libraryTracks.component'
 import { PlaylistComponent } from './playlist/playlist.component';
 import { AddTracksToPlaylistComponent } from './addTracksToPlaylist/addTracksToPlaylist.component';
 import { ProfileInsideComponent } from './profileInside/profileInside.component';
+import { ProfileModuleModule } from './profile-module/profile-module.module';
 
 
 export function tokenGetter() {
@@ -51,7 +52,7 @@ export function tokenGetter() {
       BottomMobileNavComponent,
       LoginFormComponent,
       LibraryComponent,
-      ProfileComponent,
+      //ProfileComponent,
       FileUploaderComponent,
       PlaylistCreationComponent,
       LibraryPlaylistsComponent,
@@ -61,6 +62,7 @@ export function tokenGetter() {
       ProfileInsideComponent
    ],
    imports: [
+      ProfileModuleModule,
       BrowserModule,
       HttpClientModule,
       FormsModule,
