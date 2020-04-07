@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import { PlaylistService } from '../_services/playlist.service';
+import { PlaylistService } from '../../_services/playlist.service';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 
@@ -16,11 +16,7 @@ export class PlaylistCreationComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  cancelCreationMode() {
-    this.playlistService.disableCreationMode();
-    this.router.navigate(['']);
-  }
+  
   createPlaylist() {
     this.playlistService.createPlaylist(this.model).subscribe(() => {
       console.log('creation success');

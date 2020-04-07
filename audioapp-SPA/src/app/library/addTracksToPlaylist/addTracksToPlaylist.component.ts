@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { TrackService } from '../_services/track.service';
-import { PlaylistService } from '../_services/playlist.service';
+import { TrackService } from '../../_services/track.service';
+import { PlaylistService } from '../../_services/playlist.service';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 

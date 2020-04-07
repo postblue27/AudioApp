@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PlaylistService } from '../_services/playlist.service';
-import { AuthService } from '../_services/auth.service';
+import { PlaylistService } from '../../_services/playlist.service';
+import { AuthService } from '../../_services/auth.service';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { Router, NavigationEnd, ActivatedRouteSnapshot, ActivatedRoute } from '@angular/router';
 

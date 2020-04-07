@@ -19,30 +19,11 @@ export class PlaylistService {
   private addTracksMode = false;
   constructor(private http: HttpClient, private authService: AuthService, private route: ActivatedRoute,
     private router: Router) { 
-      route.params.subscribe(p => {
-        console.log(route.snapshot.paramMap.keys);
-      });
-    }
 
-  disableCreationMode() {
-    this.creationMode = false;
-  }
-  enableCreationMode() {
-    this.creationMode = true;
-  }
-  isCreationModeEnabled() {
-    return this.creationMode;
-  }
+    }
 
   isAddTracksModeEnabled() {
     return this.addTracksMode;
-  }
-  enableAddTracksMode() {
-    this.addTracksMode = true;
-  }
-  disableAddTracksMode() {
-    this.addTracksMode = false;
-    this.tracksAddedToPlaylistUpdate.emit();
   }
 
   createPlaylist(model: any) {

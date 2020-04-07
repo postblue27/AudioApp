@@ -8,7 +8,7 @@ import { JwtModule } from '@auth0/angular-jwt';
 
 
 import { AppComponent } from './app.component';
-import { NavComponent } from './nav/nav.component';
+import { NavComponent } from './navigation-components/nav/nav.component';
 import { FormsModule } from '@angular/forms';
 import { BottomPlayerComponent } from './bottomPlayer/bottomPlayer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -21,18 +21,18 @@ import { BottomMobileNavComponent } from './bottomMobileNav/bottomMobileNav.comp
 import { LoginFormComponent } from './loginForm/loginForm.component';
 import { ErrorInterceptor, ErrorInterceptorProvider } from './_services/error.interceptor';
 import { LibraryComponent } from './library/library.component';
-//import { ProfileComponent } from './profile-module/profile/profile.component';
 import { appRoutes } from './routes';
 import { TrackService } from './_services/track.service';
-import { FileUploaderComponent } from './fileUploader/fileUploader.component';
-import { PlaylistCreationComponent } from './playlistCreation/playlistCreation.component';
+import { FileUploaderComponent } from './library/fileUploader/fileUploader.component';
+import { PlaylistCreationComponent } from './library/playlistCreation/playlistCreation.component';
 import { PlaylistService } from './_services/playlist.service';
-import { LibraryPlaylistsComponent } from './libraryPlaylists/libraryPlaylists.component';
-import { LibraryTracksComponent } from './libraryTracks/libraryTracks.component';
-import { PlaylistComponent } from './playlist/playlist.component';
-import { AddTracksToPlaylistComponent } from './addTracksToPlaylist/addTracksToPlaylist.component';
+import { LibraryPlaylistsComponent } from './library/libraryPlaylists/libraryPlaylists.component';
+import { LibraryTracksComponent } from './library/libraryTracks/libraryTracks.component';
+import { PlaylistComponent } from './library/playlist/playlist.component';
+import { AddTracksToPlaylistComponent } from './library/addTracksToPlaylist/addTracksToPlaylist.component';
 import { ProfileInsideComponent } from './profileInside/profileInside.component';
 import { ProfileModuleModule } from './profile-module/profile-module.module';
+import { LibraryModule } from './library/library.module';
 
 
 export function tokenGetter() {
@@ -51,14 +51,13 @@ export function tokenGetter() {
       RightBarComponent,
       BottomMobileNavComponent,
       LoginFormComponent,
-      LibraryComponent,
-      //ProfileComponent,
-      FileUploaderComponent,
-      PlaylistCreationComponent,
-      LibraryPlaylistsComponent,
-      LibraryTracksComponent,
-      PlaylistComponent,
-      AddTracksToPlaylistComponent,
+      // LibraryComponent,
+      // FileUploaderComponent,
+      // PlaylistCreationComponent,
+      // LibraryPlaylistsComponent,
+      // LibraryTracksComponent,
+      // PlaylistComponent,
+      // AddTracksToPlaylistComponent,
       ProfileInsideComponent
    ],
    imports: [
@@ -77,7 +76,8 @@ export function tokenGetter() {
             whitelistedDomains: ['localhost:5000'],
             blacklistedRoutes: ['localhost:5000/api/auth']
          }
-      })
+      }),
+      LibraryModule
    ],
    providers: [
       AuthService,
