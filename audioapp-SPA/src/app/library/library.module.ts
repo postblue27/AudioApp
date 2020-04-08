@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { LibraryRoutingModule } from './library-routing.module';
+import { LibraryRoutingModule, PlaylistResolver } from './library-routing.module';
 import { AddTracksToPlaylistComponent } from './addTracksToPlaylist/addTracksToPlaylist.component';
 import { PlaylistComponent } from './playlist/playlist.component';
 import { LibraryTracksComponent } from './libraryTracks/libraryTracks.component';
@@ -43,7 +43,8 @@ import { AuthService } from '../_services/auth.service';
     AuthService,
     ErrorInterceptorProvider,
     TrackService,
-    PlaylistService
+    PlaylistService,
+    PlaylistResolver
  ]
 })
 export class LibraryModule { }

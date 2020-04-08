@@ -4,8 +4,8 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faCompactDisc } from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import { PlaylistService } from '../_services/playlist.service';
-import { AuthService } from '../_services/auth.service';
+import { PlaylistService } from '../../_services/playlist.service';
+import { AuthService } from '../../_services/auth.service';
 
 @Component({
   selector: 'app-leftBar',

@@ -15,8 +15,8 @@ export class PlaylistComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.playlistService.getPlaylist(this.route.snapshot.paramMap.get('playlistId')).subscribe(response => {
-      this.playlist = response;
+    this.route.data.subscribe(response => {
+      this.playlist = response.playlist;
       this.getTracksOfPlaylist();
     }, error => {
       console.log(error);

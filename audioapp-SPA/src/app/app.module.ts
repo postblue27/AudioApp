@@ -15,21 +15,14 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AuthService } from './_services/auth.service';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
-import { LeftBarComponent } from './leftBar/leftBar.component';
-import { RightBarComponent } from './rightBar/rightBar.component';
-import { BottomMobileNavComponent } from './bottomMobileNav/bottomMobileNav.component';
+import { LeftBarComponent } from './navigation-components/leftBar/leftBar.component';
+import { RightBarComponent } from './navigation-components/rightBar/rightBar.component';
+import { BottomMobileNavComponent } from './navigation-components/bottomMobileNav/bottomMobileNav.component';
 import { LoginFormComponent } from './loginForm/loginForm.component';
 import { ErrorInterceptor, ErrorInterceptorProvider } from './_services/error.interceptor';
-import { LibraryComponent } from './library/library.component';
 import { appRoutes } from './routes';
 import { TrackService } from './_services/track.service';
-import { FileUploaderComponent } from './library/fileUploader/fileUploader.component';
-import { PlaylistCreationComponent } from './library/playlistCreation/playlistCreation.component';
 import { PlaylistService } from './_services/playlist.service';
-import { LibraryPlaylistsComponent } from './library/libraryPlaylists/libraryPlaylists.component';
-import { LibraryTracksComponent } from './library/libraryTracks/libraryTracks.component';
-import { PlaylistComponent } from './library/playlist/playlist.component';
-import { AddTracksToPlaylistComponent } from './library/addTracksToPlaylist/addTracksToPlaylist.component';
 import { ProfileInsideComponent } from './profileInside/profileInside.component';
 import { ProfileModuleModule } from './profile-module/profile-module.module';
 import { LibraryModule } from './library/library.module';
@@ -51,13 +44,6 @@ export function tokenGetter() {
       RightBarComponent,
       BottomMobileNavComponent,
       LoginFormComponent,
-      // LibraryComponent,
-      // FileUploaderComponent,
-      // PlaylistCreationComponent,
-      // LibraryPlaylistsComponent,
-      // LibraryTracksComponent,
-      // PlaylistComponent,
-      // AddTracksToPlaylistComponent,
       ProfileInsideComponent
    ],
    imports: [
