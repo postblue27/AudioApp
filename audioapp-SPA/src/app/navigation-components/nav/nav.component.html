@@ -18,7 +18,7 @@
       </form>
     </div>
 
-    <div *ngIf="!loggedIn()" class="loginButtonDiv" (click)="sendLoginMode()">
+    <div *ngIf="!loggedIn()" class="loginButtonDiv" [routerLink]="['login']">
       <span>Login<fa-icon [icon]="faSignInAlt" class="ml-2"></fa-icon></span>
     </div>
 

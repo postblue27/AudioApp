@@ -84,5 +84,13 @@ namespace audioapp.API.Data
                 select t;
             return await tracksOfPlaylist.Include(t => t.User).ToListAsync();
         }
+
+        public async Task<List<Track>> GetTracksBySearchString(string searchString)
+        {
+            var tracks = await _context.Tracks.Where(t => t.PerformerName.Contains(searchString) || 
+                t.TrackName.Contains(searchString)).ToListAsync();
+            
+            return tracks;
+        }
     }
 }

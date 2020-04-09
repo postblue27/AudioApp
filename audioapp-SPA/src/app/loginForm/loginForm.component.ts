@@ -4,6 +4,7 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { AlertifyService } from '../_services/alertify.service';
 import { Router } from '@angular/router';
 import { PlaylistService } from '../_services/playlist.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-loginForm',
@@ -16,7 +17,7 @@ export class LoginFormComponent implements OnInit {
   model: any = {};
   registerMode: boolean = false;
   constructor(private authService: AuthService, private alertify: AlertifyService, 
-    private router: Router, public playlistService: PlaylistService) { }
+    private router: Router, public playlistService: PlaylistService, private location: Location) { }
 
   ngOnInit() {
   }
@@ -37,9 +38,8 @@ export class LoginFormComponent implements OnInit {
     });
   }
 
-  cancelLoginMode() {
-    this.authService.disableLoginMode();
-    this.router.navigate(['']);
+  back() {
+    this.location.back();
   }
 
   register() {

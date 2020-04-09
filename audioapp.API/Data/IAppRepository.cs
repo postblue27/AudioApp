@@ -17,5 +17,6 @@ namespace audioapp.API.Data
         Task<List<Playlist>> GetPlaylistsOfUser(int id);
         Task<Playlist> GetPlaylist(int playlistId);
         Task<List<Track>> GetTracksOfPlaylist(int playlistId);
+        Task<List<Track>> GetTracksBySearchString(string searchString);
     }
 }

@@ -81,6 +81,14 @@ namespace audioapp.API.Controllers
 
             return Ok(tracksToReturn);
         }
+        [HttpGet]
+        [Route("search/{searchString}")]
+        public async Task<IActionResult> GetTracksBySearchString(string searchString)
+        {
+            var tracks = _repo.GetTracksBySearchString(searchString);
+
+            return Ok(tracks);
+        }
         [Authorize]
         [HttpPost]
         [Route("{userId}")]
