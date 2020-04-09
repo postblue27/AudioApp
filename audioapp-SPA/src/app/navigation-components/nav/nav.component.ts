@@ -29,11 +29,25 @@ export class NavComponent implements OnInit {
     this.router.navigate(['/home']);
   }
 
-  sendLoginMode() {
-    this.authService.enableLoginMode();
-  }
-
   loggedIn() {
     return this.authService.loggedIn();
+  }
+
+  searchInputKeyUpListener(event: any) {
+    if (event.keyCode === 13){
+      const input = event.target as HTMLInputElement;
+      const inputString = input.value;
+      //this.getTracksBySearchString(inputString);
+
+      this.router.navigate(['/search/', inputString]);
+    }
+  }
+
+  getTracksBySearchString(input: string) {
+    this.trackService.getTracksBySearchString(input).subscribe(response => {
+      console.log(response);
+    }, error => {
+      console.log(error);
+    });
   }
 }

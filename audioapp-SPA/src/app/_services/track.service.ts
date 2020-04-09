@@ -35,6 +35,10 @@ export class TrackService {
     return this.http.get('http://localhost:5000/api/audio/user/' + this.authService.decodedToken.nameid);
   }
 
+  getTracksBySearchString(input: string) {
+    return this.http.get('http://localhost:5000/api/audio/search/' + input);
+  }
+
   setActiveTrack(track: any) {
     if (this.activeTrack === track){
       this.resumeTrack.emit();

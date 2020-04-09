@@ -14,7 +14,7 @@
       <form>
         <div class="searchIconDiv"><fa-icon [icon]="this.trackService.faSearch" class="searchIcon"></fa-icon></div>
         <input class="searchFormInput" type="text" placeholder="Search" name="search"
-          aria-label="Search">
+          aria-label="Search" (keyup)="searchInputKeyUpListener($event)">
       </form>
     </div>
 

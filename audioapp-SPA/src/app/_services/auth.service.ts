@@ -15,18 +15,6 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  enableLoginMode() {
-    this.loginMode = true;
-  }
-
-  disableLoginMode() {
-    this.loginMode = false;
-  }
-
-  isLoginModeEnabled() {
-    return this.loginMode;
-  }
-
   login(model: any){
     return this.http.post(this.baseUrl + 'login', model)
       .pipe(

@@ -25,12 +25,10 @@ export class LoginFormComponent implements OnInit {
 
   login() {
     this.authService.login(this.model).subscribe(next => {
-      this.authService.disableLoginMode();
       console.log('logged successfully');
       this.playlistService.userPlaylistsUIupdate.emit();
       this.alertify.success('logged successfully');
     }, error => {
-     this.authService.enableLoginMode();
      console.log('Failed to login');
      this.alertify.error(error);
     }, () => {

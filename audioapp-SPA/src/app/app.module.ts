@@ -23,9 +23,10 @@ import { ErrorInterceptor, ErrorInterceptorProvider } from './_services/error.in
 import { appRoutes } from './routes';
 import { TrackService } from './_services/track.service';
 import { PlaylistService } from './_services/playlist.service';
-import { ProfileInsideComponent } from './profileInside/profileInside.component';
 import { ProfileModuleModule } from './profile-module/profile-module.module';
 import { LibraryModule } from './library/library.module';
+import { SearchComponent } from './search/search.component';
+import { SearchResolver } from './_resolvers/search.resolver';
 
 
 export function tokenGetter() {
@@ -44,7 +45,7 @@ export function tokenGetter() {
       RightBarComponent,
       BottomMobileNavComponent,
       LoginFormComponent,
-      ProfileInsideComponent
+      SearchComponent
    ],
    imports: [
       ProfileModuleModule,
@@ -69,7 +70,8 @@ export function tokenGetter() {
       AuthService,
       ErrorInterceptorProvider,
       TrackService,
-      PlaylistService
+      PlaylistService,
+      SearchResolver
    ],
    bootstrap: [
       AppComponent
