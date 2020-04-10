@@ -7,6 +7,7 @@ import { faPause } from '@fortawesome/free-solid-svg-icons';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faEllipsisV } from '@fortawesome/free-solid-svg-icons';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -25,10 +26,15 @@ export class TrackService {
   faTimes = faTimes;
   faSearch = faSearch;
   faPlus = faPlus;
+  faEllipsisV = faEllipsisV;
   constructor(private http: HttpClient, private authService: AuthService) { }
 
   getTracks() {
     return this.http.get('http://localhost:5000/api/audio');
+  }
+
+  getTrack(trackId: string) {
+    return this.http.get('http://localhost:5000/api/audio/' + trackId);
   }
 
   getTracksOfUser() {

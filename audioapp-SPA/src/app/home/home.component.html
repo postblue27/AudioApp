@@ -9,6 +9,7 @@
         <td>ARTIST</td>
         <td class="trackDateAdded">DATE</td>
         <td class="trackUploaderName">UPLOADER</td>
+        <td></td>
       </tr>
       <tr *ngFor="let track of tracks" class="trackDiv" id={{track.publicId}} (click)="this.trackService.trackDivClick(track.publicId); this.trackService.setActiveTrack(track);" 
           (mouseover)="this.trackService.trackDivMouseOver(track.publicId)" (mouseout)="this.trackService.trackDivMouseOut(track.publicId)">
@@ -17,6 +18,19 @@
         <td><span>{{track.performerName}}</span></td>
         <td class="trackDateAdded">{{track.dateAdded}}</td>
         <td class="trackUploaderName"><span>{{track.uploaderUserName}}</span></td>
+        <td class="trackDetailsIconDiv">
+          <div class="trackDetailsIcon dropdown" dropdown (click)="$event.stopPropagation()">
+            <a dropdownToggle style="cursor: pointer;">
+              <fa-icon [icon]="this.trackService.faEllipsisV"></fa-icon>
+            </a>
+
+            <div class="dropdown-menu dropdown-menu-right mt-1 detailsDropdownMenu" *dropdownMenu>
+              <a class="dropdown-item" [routerLink]="['/track', track.trackId, 'addToPlaylist']">Add to Playlist</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Download</a>
+            </div>
+          </div>
+        </td>
       </tr>
     </table>
   </div>

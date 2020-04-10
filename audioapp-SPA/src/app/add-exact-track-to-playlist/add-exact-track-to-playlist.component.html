@@ -1,0 +1,23 @@
+<div class="addTracksToPlaylistMainDiv">
+  <div class="addTracksToPlaylistInside">  
+
+    <div class="closeIconDiv" >
+      <fa-icon [icon]="this.trackService.faTimes" (click)="back()"></fa-icon>
+    </div>
+
+    <div class="text-center mt-3">
+      <table class="playlistTable">
+        <tr>
+          <td>NAME</td>
+          <td>DESCRIPTION</td>
+        </tr>
+        <tr *ngFor="let playlist of playlists" class="playlistDiv" [routerLink]="[playlist.playlistId]"
+          (click)="addToPlaylist(playlist.playlistId)" id={{playlist.playlistId}} >
+          <td><span>{{playlist.playlistName}}</span></td>
+          <td><span>{{playlist.playlistDesc}}</span></td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+</div>

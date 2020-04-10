@@ -27,6 +27,8 @@ import { ProfileModuleModule } from './profile-module/profile-module.module';
 import { LibraryModule } from './library/library.module';
 import { SearchComponent } from './search/search.component';
 import { SearchResolver } from './_resolvers/search.resolver';
+import { AddExactTrackToPlaylistComponent } from './add-exact-track-to-playlist/add-exact-track-to-playlist.component';
+import { TrackResolver } from './_resolvers/track.resolver';
 
 
 export function tokenGetter() {
@@ -45,7 +47,8 @@ export function tokenGetter() {
       RightBarComponent,
       BottomMobileNavComponent,
       LoginFormComponent,
-      SearchComponent
+      SearchComponent,
+      AddExactTrackToPlaylistComponent
    ],
    imports: [
       ProfileModuleModule,
@@ -71,7 +74,8 @@ export function tokenGetter() {
       ErrorInterceptorProvider,
       TrackService,
       PlaylistService,
-      SearchResolver
+      SearchResolver,
+      TrackResolver
    ],
    bootstrap: [
       AppComponent
