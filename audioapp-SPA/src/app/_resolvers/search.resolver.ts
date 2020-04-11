@@ -10,7 +10,6 @@ export class SearchResolver implements Resolve<any> {
     constructor(private trackService: TrackService, private alertify: AlertifyService,
         private router: Router) {}
     resolve(route: ActivatedRouteSnapshot): Observable<any> {
-        console.log('here');
         return this.trackService.getTracksBySearchString(route.paramMap.get('inputString')).pipe(
             catchError(error => {
                 this.alertify.error('Problem retrieving data');

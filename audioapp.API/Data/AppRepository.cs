@@ -88,7 +88,7 @@ namespace audioapp.API.Data
         public async Task<List<Track>> GetTracksBySearchString(string searchString)
         {
             var tracks = await _context.Tracks.Where(t => t.PerformerName.Contains(searchString) || 
-                t.TrackName.Contains(searchString)).ToListAsync();
+                t.TrackName.Contains(searchString)).Include(t => t.User).ToListAsync();
             
             return tracks;
         }

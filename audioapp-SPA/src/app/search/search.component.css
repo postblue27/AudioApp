@@ -1,0 +1,9 @@
+.infospanDiv{
+    color: rgb(130, 130, 130);
+    font-size: 22px;
+    font-weight: 300;
+
+    /* overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; */
+}
