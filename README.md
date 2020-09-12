@@ -13,8 +13,8 @@ Link: https://nodejs.org/uk/download/
 
 4. Download Angular.
 For Windows: 
-  1. Open cmd;
-  2. Run "npm install -g @angular/cli".
+  - Open cmd;
+  - Run "npm install -g @angular/cli" and wait until it's done.
 
 5. Open project in VS Code, change directory to AudioApp-SPA folder via terminal(ctrl+`) and run "npm install".
 It will install all modules needed for angular project to run.
